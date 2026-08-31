@@ -49,7 +49,11 @@ The pipeline in [`feature_extractor.py`](file:///C:/Users/Lenovo/.gemini/antigra
 
 ## 🚀 How to Run
 
-```bash
+### 🪟 Windows (PowerShell / Command Prompt)
+```powershell
+# Navigate to project directory
+cd C:\Users\Lenovo\.gemini\antigravity\scratch\colorectal_histology_svm_baseline
+
 # Run full 10-fold cross-validation baseline
 python main_svm.py
 
@@ -61,6 +65,21 @@ python main_svm.py --cv-folds 5
 
 # Optional: Fast test run on 200 subsampled images
 python main_svm.py --subsample 200
+```
+
+### 🐧 Ubuntu / WSL (Linux)
+```bash
+# Navigate to project directory
+cd /mnt/c/Users/Lenovo/.gemini/antigravity/scratch/colorectal_histology_svm_baseline
+
+# Activate virtual environment
+source venv/bin/activate
+
+# Run full 10-fold cross-validation baseline
+python3 main_svm.py
+
+# Optional: Run in background with nohup
+nohup python3 main_svm.py > svm_baseline.log 2>&1 &
 ```
 
 ---

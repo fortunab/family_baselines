@@ -47,9 +47,13 @@ Implemented in [`train_vit.py`](file:///C:/Users/Lenovo/.gemini/antigravity/scra
 
 ## 🚀 How to Run
 
-```bash
+### 🪟 Windows (PowerShell / Command Prompt)
+```powershell
+# Navigate to project directory
+cd C:\Users\Lenovo\.gemini\antigravity\scratch\colorectal_histology_svm_baseline
+
 # Fine-tune ViT-Base (Default: vit_base_patch16_224)
-python main_vit.py
+python main_vit.py --model-name vit_base_patch16_224 --epochs 15 --batch-size 32
 
 # Fine-tune SOTA EVA-02 (448x448 resolution)
 python main_vit.py --model-name eva02_base_patch14_448 --img-size 448 --epochs 15
@@ -59,6 +63,24 @@ python main_vit.py --model-name swin_base_patch4_window7_224 --epochs 15
 
 # Fast dry-run on 64 subsampled images
 python main_vit.py --subsample 64 --epochs 1 --batch-size 8
+```
+
+### 🐧 Ubuntu / WSL (Linux)
+```bash
+# Navigate to project directory
+cd /mnt/c/Users/Lenovo/.gemini/antigravity/scratch/colorectal_histology_svm_baseline
+
+# Activate virtual environment
+source venv/bin/activate
+
+# Fine-tune ViT-Base
+python3 main_vit.py --model-name vit_base_patch16_224 --epochs 15 --batch-size 32
+
+# Fine-tune EVA-02 (448x448)
+python3 main_vit.py --model-name eva02_base_patch14_448 --img-size 448 --epochs 15
+
+# Run in background with nohup
+nohup python3 main_vit.py --model-name vit_base_patch16_224 > vit_training.log 2>&1 &
 ```
 
 ---
