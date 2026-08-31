@@ -1,0 +1,79 @@
+================================================================================
+  KATHER ET AL. (2016) COLORECTAL HISTOLOGY BASELINE (LBP+GLCM+GABOR+COLOR + RBF-SVM)
+================================================================================
+ Data Directory    : /mnt/c/Users/Lenovo/.gemini/antigravity/scratch/colorectal_histology_svm_baseline/data
+ Feature Cache     : /mnt/c/Users/Lenovo/.gemini/antigravity/scratch/colorectal_histology_svm_baseline/cache/features_kather2016.npz
+ Results Output    : /mnt/c/Users/Lenovo/.gemini/antigravity/scratch/colorectal_histology_svm_baseline/results
+ Cross-Validation  : 10-Fold Stratified CV
+ CPU Worker Jobs   : -1
+================================================================================
+[Dataset] Found existing dataset directory at: /mnt/c/Users/Lenovo/.gemini/antigravity/scratch/colorectal_histology_svm_baseline/data/Kather_texture_2016_image_tiles_5000
+[Dataset] Successfully indexed 5000 images across 8 classes.
+[FeatureExtractor] Loading cached features from /mnt/c/Users/Lenovo/.gemini/antigravity/scratch/colorectal_histology_svm_baseline/cache/features_kather2016.npz...
+[FeatureExtractor] Loaded features shape: (200, 345), labels shape: (200,)
+
+[Step 4] Running 10-Fold Stratified Cross-Validation (C=10.0, gamma=scale)...
+[SVM-Train] Generating out-of-fold predictions using 10-fold Stratified CV...
+/home/lenovo/colorectal_histology_svm_baseline/venv/lib/python3.14/site-packages/sklearn/svm/_base.py:239: FutureWarning: The `probability` parameter was deprecated in 1.9 and will be removed in version 1.11. Use `CalibratedClassifierCV(SVC(), ensemble=False)` instead of `SVC(probability=True)`
+  warnings.warn(
+/home/lenovo/colorectal_histology_svm_baseline/venv/lib/python3.14/site-packages/sklearn/svm/_base.py:239: FutureWarning: The `probability` parameter was deprecated in 1.9 and will be removed in version 1.11. Use `CalibratedClassifierCV(SVC(), ensemble=False)` instead of `SVC(probability=True)`
+  warnings.warn(
+/home/lenovo/colorectal_histology_svm_baseline/venv/lib/python3.14/site-packages/sklearn/svm/_base.py:239: FutureWarning: The `probability` parameter was deprecated in 1.9 and will be removed in version 1.11. Use `CalibratedClassifierCV(SVC(), ensemble=False)` instead of `SVC(probability=True)`
+  warnings.warn(
+/home/lenovo/colorectal_histology_svm_baseline/venv/lib/python3.14/site-packages/sklearn/svm/_base.py:239: FutureWarning: The `probability` parameter was deprecated in 1.9 and will be removed in version 1.11. Use `CalibratedClassifierCV(SVC(), ensemble=False)` instead of `SVC(probability=True)`
+  warnings.warn(
+/home/lenovo/colorectal_histology_svm_baseline/venv/lib/python3.14/site-packages/sklearn/svm/_base.py:239: FutureWarning: The `probability` parameter was deprecated in 1.9 and will be removed in version 1.11. Use `CalibratedClassifierCV(SVC(), ensemble=False)` instead of `SVC(probability=True)`
+  warnings.warn(
+/home/lenovo/colorectal_histology_svm_baseline/venv/lib/python3.14/site-packages/sklearn/svm/_base.py:239: FutureWarning: The `probability` parameter was deprecated in 1.9 and will be removed in version 1.11. Use `CalibratedClassifierCV(SVC(), ensemble=False)` instead of `SVC(probability=True)`
+  warnings.warn(
+/home/lenovo/colorectal_histology_svm_baseline/venv/lib/python3.14/site-packages/sklearn/svm/_base.py:239: FutureWarning: The `probability` parameter was deprecated in 1.9 and will be removed in version 1.11. Use `CalibratedClassifierCV(SVC(), ensemble=False)` instead of `SVC(probability=True)`
+  warnings.warn(
+/home/lenovo/colorectal_histology_svm_baseline/venv/lib/python3.14/site-packages/sklearn/svm/_base.py:239: FutureWarning: The `probability` parameter was deprecated in 1.9 and will be removed in version 1.11. Use `CalibratedClassifierCV(SVC(), ensemble=False)` instead of `SVC(probability=True)`
+  warnings.warn(
+/home/lenovo/colorectal_histology_svm_baseline/venv/lib/python3.14/site-packages/sklearn/svm/_base.py:239: FutureWarning: The `probability` parameter was deprecated in 1.9 and will be removed in version 1.11. Use `CalibratedClassifierCV(SVC(), ensemble=False)` instead of `SVC(probability=True)`
+  warnings.warn(
+/home/lenovo/colorectal_histology_svm_baseline/venv/lib/python3.14/site-packages/sklearn/svm/_base.py:239: FutureWarning: The `probability` parameter was deprecated in 1.9 and will be removed in version 1.11. Use `CalibratedClassifierCV(SVC(), ensemble=False)` instead of `SVC(probability=True)`
+  warnings.warn(
+/home/lenovo/colorectal_histology_svm_baseline/venv/lib/python3.14/site-packages/sklearn/svm/_base.py:239: FutureWarning: The `probability` parameter was deprecated in 1.9 and will be removed in version 1.11. Use `CalibratedClassifierCV(SVC(), ensemble=False)` instead of `SVC(probability=True)`
+  warnings.warn(
+[SVM-Train] Fitting final model on all 5,000 samples...
+[SVM-Train] Model saved successfully to: /mnt/c/Users/Lenovo/.gemini/antigravity/scratch/colorectal_histology_svm_baseline/results/kather2016_svm_pipeline.joblib
+
+[Step 5] Computing Comprehensive Performance Metrics...
+
+================================================================================
+           COLORECTAL HISTOLOGY BASELINE PERFORMANCE EVALUATION REPORT
+================================================================================
+ Top-1 Overall Accuracy : 85.50%
+ Balanced Accuracy      : 85.95%
+ Macro Precision        : 85.69%
+ Macro Recall           : 85.95%
+ Macro F1-Score         : 85.73%
+ Weighted F1-Score      : 85.43%
+ Cohen's Kappa (κ)      : 0.8340
+ Matthews CorrCoef (MCC): 0.8343
+ Macro ROC-AUC (OvR)    : 97.94%
+ Macro PR-AUC (Average) : 90.68%
+ Multi-class Log-Loss   : 0.5618
+--------------------------------------------------------------------------------
+ PER-CLASS METRICS BREAKDOWN:
+ Class          | Precision | Recall    | Spec.     | F1-Score  | AUC     | Support
+--------------------------------------------------------------------------------
+ Tumor epithelium (TUM) |    82.76% |    77.42% |    97.04% |    80.00% |   97.2% |      31
+ Simple stroma (STR) |    79.17% |    70.37% |    97.11% |    74.51% |   94.8% |      27
+ Complex stroma (CPX) |    71.43% |    75.00% |    96.67% |    73.17% |   96.6% |      20
+ Immune cells / Lymphocytes (LYM) |    95.45% |    91.30% |    99.44% |    93.33% |   99.9% |      23
+ Debris (DEB)   |    75.86% |    81.48% |    95.95% |    78.57% |   96.1% |      27
+ Normal mucosal glands (NORM) |    85.19% |    92.00% |    97.71% |    88.46% |   99.3% |      25
+ Adipose tissue (ADI) |    95.65% |   100.00% |    99.44% |    97.78% |   99.6% |      22
+ Background / Empty (BACK) |   100.00% |   100.00% |   100.00% |   100.00% |  100.0% |      25
+================================================================================
+
+[Main] Metrics JSON exported to: /mnt/c/Users/Lenovo/.gemini/antigravity/scratch/colorectal_histology_svm_baseline/results/metrics_summary.json
+[Evaluate] Confusion matrix plot saved to: /mnt/c/Users/Lenovo/.gemini/antigravity/scratch/colorectal_histology_svm_baseline/results/confusion_matrix.png
+[Evaluate] ROC curves plot saved to: /mnt/c/Users/Lenovo/.gemini/antigravity/scratch/colorectal_histology_svm_baseline/results/roc_curves.png
+
+================================================================================
+ BASELINE EXECUTION & EVALUATION COMPLETED SUCCESSFULLY!
+ Artifacts generated in: /mnt/c/Users/Lenovo/.gemini/antigravity/scratch/colorectal_histology_svm_baseline/results
+================================================================================
