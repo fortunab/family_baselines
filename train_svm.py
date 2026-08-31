@@ -25,7 +25,7 @@ def create_svm_pipeline(
     C: float = 10.0,
     gamma: Any = "scale",
     probability: bool = True,
-    random_state: int = 42
+    random_state: int = 45
 ) -> Pipeline:
     """
     Creates a scikit-learn Pipeline with StandardScaler and RBF-kernel SVC.
