@@ -4,7 +4,7 @@ This repository provides full, reproducible implementations for the four standar
 
 | Tier | Benchmark Paradigm | Architecture / Method | Top-1 Accuracy | Macro F1 | Detailed Guide |
 | :---: | :--- | :--- | :---: | :---: | :--- |
-| **1** | **Classical ML Baseline** | **Handcrafted (LBP+GLCM+Gabor+Color) + RBF-SVM** | **87.4%** | ~0.87 | [README_SVM.md](file:///C:/Users/Lenovo/.gemini/antigravity/scratch/colorectal_histology_svm_baseline/README_SVM.md) |
+| **1** | **Classical ML Baseline** | **Handcrafted (LBP+GLCM+Gabor+Color) + RBF-SVM** | **up to 87.4%** | ~0.87 | [README_SVM.md](file:///C:/Users/Lenovo/.gemini/antigravity/scratch/colorectal_histology_svm_baseline/README_SVM.md) |
 | **2** | **Modern CNN Baseline** | **ConvNeXt (ConvNeXt-Tiny / ConvNeXt-Small)** | **96.3% – 97.4%** | ~0.97 | [README_CONVNEXT.md](file:///C:/Users/Lenovo/.gemini/antigravity/scratch/colorectal_histology_svm_baseline/README_CONVNEXT.md) |
 | **3** | **SOTA Vision Transformer** | **Vision Transformer (EVA-02 / ViT-B / ViT-L)** | **98.4% – 99.17%** | ~0.99 | [README_VIT.md](file:///C:/Users/Lenovo/.gemini/antigravity/scratch/colorectal_histology_svm_baseline/README_VIT.md) |
 | **4** | **Pathology Foundation** | **Paige & Microsoft Virchow / Owkin Phikon** | **> 98.5% – 99.0%** | **> 0.985** | [README_VIRCHOW.md](file:///C:/Users/Lenovo/.gemini/antigravity/scratch/colorectal_histology_svm_baseline/README_VIRCHOW.md) |
