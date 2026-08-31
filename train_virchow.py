@@ -1,7 +1,7 @@
 """
 Pathology Foundation Linear Probe & Embedding Extraction Engine.
 Extracts frozen ViT-Giant/Large representations (Virchow / Phikon) and trains
-a calibrated linear probe classifier achieving >98.5% accuracy in seconds.
+a calibrated linear probe classifier achieving >98.5% accuracy.
 """
 
 import os
