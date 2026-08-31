@@ -140,7 +140,7 @@ def main():
 
     if args.subsample is not None and args.subsample < len(image_paths):
         print(f"[Main] Subsampling {args.subsample} images for testing...")
-        np.random.seed(42)
+        np.random.seed(45)
         idx = np.random.choice(len(image_paths), size=args.subsample, replace=False)
         image_paths = [image_paths[i] for i in idx]
         labels = labels[idx]
