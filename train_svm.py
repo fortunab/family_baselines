@@ -60,7 +60,7 @@ def optimize_hyperparameters(
         }
 
     base_pipe = create_svm_pipeline()
-    cv = StratifiedKFold(n_splits=cv_folds, shuffle=True, random_state=42)
+    cv = StratifiedKFold(n_splits=cv_folds, shuffle=True, random_state=45)
 
     print(f"[SVM-Train] Running Grid Search CV ({cv_folds} folds) over hyperparameter grid: {param_grid}...")
     grid_search = GridSearchCV(
@@ -86,7 +86,7 @@ def train_and_cross_validate(
     n_splits: int = 10,
     C: float = 10.0,
     gamma: Any = "scale",
-    random_state: int = 42,
+    random_state: int = 45,
     n_jobs: int = -1
 ) -> Tuple[np.ndarray, np.ndarray, Pipeline]:
     """
