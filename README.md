@@ -30,23 +30,23 @@ colorectal_histology_svm_baseline/
 │   ├── evaluate.py             # Metrics suite (Accuracy, F1, Kappa, MCC, ROC/PR)
 │   └── compare_baselines.py    # 4-tier comparative report & multi-bar chart
 │
-├── [TIER 1: CLASSICAL SVM (~87.4%)]
+├── [TIER 1: CLASSICAL SVM]
 │   ├── feature_extractor.py    # Multi-core LBP, GLCM, Gabor, and Color descriptor extraction
 │   ├── train_svm.py            # StandardScaler + RBF-Kernel SVM + 10-Fold CV
 │   └── main_svm.py             # Entrypoint for Classical SVM baseline
 │
-├── [TIER 2: MODERN CONVNEXT CNN (~96.3% - 97.4%)]
+├── [TIER 2: MODERN CONVNEXT CNN]
 │   ├── convnext_models.py      # ConvNeXt-Tiny / Small / Base model factory
 │   ├── train_convnext.py       # Mixed-precision engine, AdamW, Warmup Cosine scheduler
 │   └── main_convnext.py        # Entrypoint for ConvNeXt fine-tuning
 │
-├── [TIER 3: SOTA VISION TRANSFORMERS (98.4% - 99.17%)]
+├── [TIER 3: SOTA VISION TRANSFORMERS]
 │   ├── vit_dataset.py          # PyTorch Dataset with D4 dihedral rotations & stain jitter
 │   ├── vit_models.py           # Model factory: EVA-02, ViT-Base/Large, Swin
 │   ├── train_vit.py            # Mixed-precision engine, AdamW, Warmup Cosine scheduler
 │   └── main_vit.py             # Entrypoint for Vision Transformer fine-tuning
 │
-└── [TIER 4: PATHOLOGY FOUNDATION MODELS (> 98.5% - 99.0%)]
+└── [TIER 4: PATHOLOGY FOUNDATION MODELS]
     ├── virchow_models.py       # Paige Virchow ViT-Giant & Owkin Phikon foundation loader
     ├── train_virchow.py        # Embedding extraction & calibrated Linear Probe engine
     └── main_virchow.py         # Entrypoint for Pathology Foundation baseline
