@@ -2,12 +2,12 @@
 
 This repository provides full, reproducible implementations for the four standard benchmark paradigms on the **`colorectal_histology`** dataset (5,000 histological image patches, 8 tissue classes):
 
-| Tier | Benchmark Paradigm | Architecture / Method | Top-1 Accuracy | Macro F1 | Detailed Guide |
+| Tier | Benchmark Paradigm | Architecture / Method | Detailed Guide |
 | :---: | :--- | :--- | :---: | :---: | :--- |
-| **1** | **Classical ML Baseline** | **Handcrafted (LBP+GLCM+Gabor+Color) + RBF-SVM** | **up to 87.4%** | ~0.87 | [README_SVM.md](file:///C:/Users/Lenovo/.gemini/antigravity/scratch/colorectal_histology_svm_baseline/README_SVM.md) |
-| **2** | **Modern CNN Baseline** | **ConvNeXt (ConvNeXt-Tiny / ConvNeXt-Small)** | **96.3% – 97.4%** | ~0.97 | [README_CONVNEXT.md](file:///C:/Users/Lenovo/.gemini/antigravity/scratch/colorectal_histology_svm_baseline/README_CONVNEXT.md) |
-| **3** | **SOTA Vision Transformer** | **Vision Transformer (EVA-02 / ViT-B / ViT-L)** | **98.4% – 99.17%** | ~0.99 | [README_VIT.md](file:///C:/Users/Lenovo/.gemini/antigravity/scratch/colorectal_histology_svm_baseline/README_VIT.md) |
-| **4** | **Pathology Foundation** | **Paige & Microsoft Virchow / Owkin Phikon** | **> 98.5% – 99.0%** | **> 0.985** | [README_VIRCHOW.md](file:///C:/Users/Lenovo/.gemini/antigravity/scratch/colorectal_histology_svm_baseline/README_VIRCHOW.md) |
+| **1** | **Classical ML Baseline** | **Handcrafted (LBP+GLCM+Gabor+Color) + RBF-SVM** | [README_SVM.md](file:///C:/Users/Lenovo/.gemini/antigravity/scratch/colorectal_histology_svm_baseline/README_SVM.md) |
+| **2** | **Modern CNN Baseline** | **ConvNeXt (ConvNeXt-Tiny / ConvNeXt-Small)** | [README_CONVNEXT.md](file:///C:/Users/Lenovo/.gemini/antigravity/scratch/colorectal_histology_svm_baseline/README_CONVNEXT.md) |
+| **3** | **SOTA Vision Transformer** | **Vision Transformer (EVA-02 / ViT-B / ViT-L)** | [README_VIT.md](file:///C:/Users/Lenovo/.gemini/antigravity/scratch/colorectal_histology_svm_baseline/README_VIT.md) |
+| **4** | **Pathology Foundation** | **Paige & Microsoft Virchow / Owkin Phikon** | [README_VIRCHOW.md](file:///C:/Users/Lenovo/.gemini/antigravity/scratch/colorectal_histology_svm_baseline/README_VIRCHOW.md) |
 
 ---
 
@@ -63,28 +63,28 @@ pip install -r requirements.txt
 
 ---
 
-### 2. Run Tier 1: Classical SVM Baseline (87.4%)
+### 2. Run Tier 1: Classical SVM Baseline
 ```bash
 python main_svm.py
 ```
 
 ---
 
-### 3. Run Tier 2: Modern ConvNeXt CNN Baseline (96.3% – 97.4%)
+### 3. Run Tier 2: Modern ConvNeXt CNN Baseline
 ```bash
 python main_convnext.py --model-name convnext_tiny --epochs 15 --batch-size 32
 ```
 
 ---
 
-### 4. Run Tier 3: SOTA Vision Transformer Baseline (98.4% – 99.17%)
+### 4. Run Tier 3: SOTA Vision Transformer Baseline
 ```bash
 python main_vit.py --model-name vit_base_patch16_224 --epochs 15 --batch-size 32
 ```
 
 ---
 
-### 5. Run Tier 4: Computational Pathology Foundation Model (> 98.5%)
+### 5. Run Tier 4: Computational Pathology Foundation Model
 ```bash
 # Using Paige Virchow (1.5M WSIs ViT-Giant)
 python main_virchow.py --model-name paige-ai/Virchow
