@@ -6,7 +6,7 @@ This guide documents the implementation, feature mathematics, and execution of t
 > *Multi-class texture analysis in colorectal cancer histology.*  
 > **Scientific Reports**, 6(1), 27988. [doi:10.1038/srep27988](https://doi.org/10.1038/srep27988)
 
-**Benchmark Performance:** **87.4%** Top-1 Accuracy with 10-fold patient-stratified cross-validation.
+**Benchmark Performance:** Up to **87.4%** Top-1 Accuracy with 10-fold patient-stratified cross-validation.
 
 ---
 
