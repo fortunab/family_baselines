@@ -1,0 +1,27 @@
+# Deep Learning & Foundation Vision Frameworks
+torch>=2.0.0
+torchvision>=0.15.0
+fastai>=2.7.12
+skorch>=0.15.0
+timm>=0.9.0
+
+# Configuration & Parsing
+toml>=0.10.2
+
+# MLOps & Experiment Tracking Tools
+wandb>=0.16.0
+mlflow>=2.10.0
+tensorboard>=2.14.0
+
+# Scientific & Evaluation Metrics
+numpy>=1.20.0
+scipy>=1.7.0
+scikit-learn>=1.0.0
+pandas>=1.4.0
+
+# Visualization & Utilities
+matplotlib>=3.5.0
+seaborn>=0.11.0
+Pillow>=9.0.0
+tqdm>=4.64.0
+requests>=2.28.0
