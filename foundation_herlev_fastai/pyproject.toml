@@ -1,0 +1,69 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "herlev_pathology_foundation_fastai"
+version = "1.0.0"
+description = "Herlev Cervical Cytology Pathology Foundation Benchmark in fastai with TOML config and Weights & Biases tracking"
+authors = [{ name = "AI Medical Research Team" }]
+dependencies = [
+    "torch>=2.0.0",
+    "fastai>=2.7.12",
+    "timm>=0.9.0",
+    "transformers>=4.30.0",
+    "wandb>=0.16.0",
+    "toml>=0.10.2",
+    "scikit-learn>=1.0.0",
+    "pandas>=1.4.0",
+    "matplotlib>=3.5.0",
+    "seaborn>=0.11.0"
+]
+
+[tool.black]
+line-length = 100
+target-version = ['py310', 'py311', 'py312']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | venv
+  | build
+  | dist
+  | results
+  | data
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 100
+multi_line_output = 3
+include_trailing_comma = true
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+exclude = [
+    ".git",
+    ".venv",
+    "venv",
+    "results",
+    "data"
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B"]
+ignore = [
+    "E501",  # line length handled by black/formatter
+    "B008",  # function call in default argument
+    "F401",  # unused import in __init__
+]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = false
+warn_unused_configs = true
+ignore_missing_imports = true
+exclude = ['results/', 'data/']

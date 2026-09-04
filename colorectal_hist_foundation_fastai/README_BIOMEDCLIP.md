@@ -1,0 +1,38 @@
+# Model Guide: Microsoft BiomedCLIP (fastai + TOML + W&B)
+
+Dedicated guide for training **Microsoft BiomedCLIP Vision Backbone (`microsoft/BiomedCLIP-PubMedBERT_256-vit_base_patch16_224`)** on the 8-class Colorectal Histology dataset.
+
+---
+
+## 🔬 Architecture Details
+- **Microsoft BiomedCLIP** is a biomedical vision-language foundation model trained on 15 million biomedical image-text pairs extracted from PubMed Central.
+- Produces 512-dimensional multimodal latent embeddings aligned with biomedical domain semantics.
+- Fine-tuned with fastai `Learner` and `fit_one_cycle`.
+
+---
+
+## ⚙️ TOML Profile: `configs/biomedclip.toml`
+
+```toml
+[model]
+framework = "fastai"
+family = "biomedclip"
+backbone = "microsoft/BiomedCLIP-PubMedBERT_256-vit_base_patch16_224"
+model_type = "huggingface"
+pretrained = true
+embedding_dim = 512
+
+[training]
+epochs = 8
+batch_size = 16
+learning_rate = 0.0003
+weight_decay = 0.01
+```
+
+---
+
+## 🚀 Execution
+
+```powershell
+python main_fastai_foundation.py --config configs/biomedclip.toml
+```
