@@ -70,6 +70,7 @@ OR
 
 git clone --filter=blob:none --no-checkout https://github.com/fortunab/family_baselines.git
 cd family_baselines
+(git fetch origin)
 git sparse-checkout init --cone
 git sparse-checkout set colorectal_hist_foundation_fastai/src
 git checkout main
@@ -117,6 +118,7 @@ OR
 
 git clone --filter=blob:none --no-checkout https://github.com/fortunab/family_baselines.git
 cd family_baselines
+(git fetch origin)
 git sparse-checkout init --cone
 git sparse-checkout set colorectal_hist_foundation_fastai/src
 git checkout main
