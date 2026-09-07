@@ -1,0 +1,23 @@
+2026-09-04 12:39:24,689 INFO    MainThread:20728 [wandb_setup.py:_flush():81] Current SDK version is 0.29.0
+2026-09-04 12:39:24,689 INFO    MainThread:20728 [wandb_setup.py:_flush():81] Configure stats pid to 20728
+2026-09-04 12:39:24,689 INFO    MainThread:20728 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2026-09-04 12:39:24,689 INFO    MainThread:20728 [wandb_init.py:setup_run_log_directory():739] Logging user logs to C:\Users\Lenovo\.gemini\antigravity\scratch\colorectal_histology_pathology_foundation_skorch\wandb\offline-run-20260904_123924-zkgylk9g\logs\debug.log
+2026-09-04 12:39:24,689 INFO    MainThread:20728 [wandb_init.py:setup_run_log_directory():740] Logging internal logs to C:\Users\Lenovo\.gemini\antigravity\scratch\colorectal_histology_pathology_foundation_skorch\wandb\offline-run-20260904_123924-zkgylk9g\logs\debug-internal.log
+2026-09-04 12:39:24,689 INFO    MainThread:20728 [wandb_init.py:init():783] calling init triggers
+2026-09-04 12:39:24,689 INFO    MainThread:20728 [wandb_init.py:init():788] wandb.init called with sweep_config: {}
+config: {'project.name': 'colorectal_histology_pathology_foundation_skorch', 'name': 'colorectal_histology_pathology_foundation_skorch', 'project.experiment_name': 'dinov2_foundation_skorch_run', 'experiment_name': 'dinov2_foundation_skorch_run', 'project.seed': 0, 'seed': 825513, 'data.data_dir': './data', 'data_dir': './data', 'data.results_dir': './results', 'results_dir': './results', 'data.image_size': 224, 'image_size': 224, 'data.val_split': 0.15, 'val_split': 0.15, 'data.test_split': 0.15, 'test_split': 0.15, 'data.num_classes': 8, 'num_classes': 8, 'data.subsample': 0, 'subsample': 32, 'model.framework': 'skorch', 'framework': 'skorch', 'model.family': 'dinov2', 'family': 'dinov2', 'model.backbone': 'facebook/dinov2-base', 'backbone': 'facebook/dinov2-base', 'model.model_type': 'huggingface', 'model_type': 'huggingface', 'model.pretrained': True, 'pretrained': True, 'model.embedding_dim': 768, 'embedding_dim': 768, 'training.epochs': 8, 'epochs': 1, 'training.batch_size': 16, 'batch_size': 16, 'training.learning_rate': 0.0003, 'learning_rate': 0.0003, 'training.weight_decay': 0.01, 'weight_decay': 0.01, 'training.optimizer': 'adamw', 'optimizer': 'adamw', 'training.lr_scheduler': 'cosine', 'lr_scheduler': 'cosine', 'training.device': 'cpu', 'device': 'cpu', 'skorch.max_epochs': 8, 'max_epochs': 1, 'skorch.lr': 0.0003, 'lr': 0.0003, 'skorch.early_stopping_patience': 5, 'early_stopping_patience': 5, 'skorch.cross_val_folds': 3, 'cross_val_folds': 3, 'wandb.enabled': True, 'enabled': True, 'wandb.project': 'colorectal-histology-pathology-foundation-skorch', 'project': 'colorectal-histology-pathology-foundation-skorch', 'wandb.entity': '', 'entity': '', 'wandb.tags': ['skorch', 'dinov2', 'meta', 'foundation', 'histology', 'toml'], 'tags': ['skorch', 'dinov2', 'meta', 'foundation', 'histology', 'toml'], 'wandb.save_artifact': True, 'save_artifact': True, '_wandb': {}}
+2026-09-04 12:39:24,689 INFO    MainThread:20728 [wandb_init.py:init():831] starting backend
+2026-09-04 12:39:27,050 INFO    MainThread:20728 [wandb_init.py:init():846] sending inform_init request
+2026-09-04 12:39:27,364 INFO    MainThread:20728 [wandb_init.py:init():851] backend started and connected
+2026-09-04 12:39:27,365 INFO    MainThread:20728 [wandb_init.py:init():921] updated telemetry
+2026-09-04 12:39:27,445 INFO    MainThread:20728 [wandb_init.py:init():944] communicating run to backend with 90.0 second timeout
+2026-09-04 12:39:27,460 INFO    MainThread:20728 [wandb_init.py:init():981] starting run threads in backend
+2026-09-04 12:39:29,546 INFO    MainThread:20728 [wandb_run.py:_console_start():2545] atexit reg
+2026-09-04 12:39:29,546 INFO    MainThread:20728 [wandb_run.py:_redirect():2395] redirect: wrap_raw
+2026-09-04 12:39:29,546 INFO    MainThread:20728 [wandb_run.py:_redirect():2464] Wrapping output streams.
+2026-09-04 12:39:29,546 INFO    MainThread:20728 [wandb_run.py:_redirect():2487] Redirects installed.
+2026-09-04 12:39:29,552 INFO    MainThread:20728 [wandb_init.py:init():1019] run started, returning control to user process
+2026-09-04 12:39:40,767 INFO    MainThread:20728 [wandb_run.py:_finish():2316] finishing run colorectal-histology-pathology-foundation-skorch/zkgylk9g
+2026-09-04 12:39:40,768 INFO    MainThread:20728 [wandb_run.py:_atexit_cleanup():2512] got exitcode: 0
+2026-09-04 12:39:40,769 INFO    MainThread:20728 [wandb_run.py:_restore():2494] restore
+2026-09-04 12:39:40,769 INFO    MainThread:20728 [wandb_run.py:_restore():2500] restore done
