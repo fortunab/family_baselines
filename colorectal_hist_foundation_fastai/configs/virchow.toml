@@ -1,0 +1,38 @@
+# Herlev Cervical Cytology Pathology Foundation Suite - Paige Virchow Profile
+# Backbone: paige-ai/Virchow (632M parameter ViT-Huge Pathology Foundation Model)
+# Framework: skorch
+
+[dataset]
+name = "Herlev Cervical Cytology Pap Smear"
+data_dir = "data"
+num_classes = 7
+val_split = 0.15
+test_split = 0.15
+seed = 42
+subsample = 0
+
+[model]
+backbone = "paige-ai/Virchow"
+model_type = "timm"
+embedding_dim = 1280
+pretrained = true
+
+[training]
+framework = "skorch"
+image_size = 224
+batch_size = 8
+epochs = 8
+early_stopping_patience = 5
+learning_rate = 0.0001
+weight_decay = 0.0001
+device = "cuda"
+
+[wandb]
+enabled = true
+project = "herlev-cytology-pathology-foundation"
+entity = ""
+tags = ["skorch", "foundation", "virchow", "paige", "herlev", "cytology"]
+
+[evaluation]
+results_dir = "results"
+save_plots = true
