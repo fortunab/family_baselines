@@ -99,9 +99,6 @@ source venv_foundation_skorch/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 
-# Activate virtual environment
-source venv/bin/activate
-
 # Tier 1: Classical SVM
 python3 main_svm.py
 
