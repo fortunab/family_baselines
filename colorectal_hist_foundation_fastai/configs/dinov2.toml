@@ -1,38 +1,48 @@
-# Herlev Cervical Cytology Pathology Foundation Suite - Meta DINOv2 Profile
-# Backbone: facebook/dinov2-base (Self-Supervised Vision Transformer Foundation Model)
-# Framework: skorch
+# ==============================================================================
+# Model 4: Meta DINOv2 Vision Foundation Model (fastai + TOML + W&B)
+# ==============================================================================
 
-[dataset]
-name = "Herlev Cervical Cytology Pap Smear"
-data_dir = "data"
-num_classes = 7
+[project]
+name = "colorectal_histology_pathology_foundation"
+experiment_name = "dinov2_foundation_run"
+seed = 0
+
+[data]
+data_dir = "./data"
+results_dir = "./results"
+image_size = 224
 val_split = 0.15
 test_split = 0.15
-seed = 42
+num_classes = 8
 subsample = 0
 
 [model]
+framework = "fastai"
+family = "dinov2"
 backbone = "facebook/dinov2-base"
 model_type = "huggingface"
-embedding_dim = 768
 pretrained = true
+freeze_epochs = 1
+embedding_dim = 768
 
 [training]
-framework = "skorch"
-image_size = 224
-batch_size = 16
 epochs = 8
-early_stopping_patience = 5
+batch_size = 16
 learning_rate = 0.0003
-weight_decay = 0.0001
-device = "cuda"
+weight_decay = 0.01
+optimizer = "adamw"
+lr_scheduler = "cosine"
+mixed_precision = false
+
+[augmentation]
+random_flip = true
+max_rotate = 15.0
+max_zoom = 1.1
+max_lighting = 0.2
 
 [wandb]
 enabled = true
-project = "herlev-cytology-pathology-foundation"
+project = "colorectal-histology-pathology-foundation"
 entity = ""
-tags = ["skorch", "foundation", "dinov2", "meta", "herlev", "cytology"]
-
-[evaluation]
-results_dir = "results"
-save_plots = true
+tags = ["fastai", "dinov2", "meta", "foundation", "histology", "toml"]
+save_artifact = true
