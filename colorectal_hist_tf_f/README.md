@@ -45,7 +45,7 @@ colorectal_histology_tf_foundation/data/
 
 ```powershell
 # Navigate to the project directory
-cd C:\Users\Lenovo\.gemini\antigravity\scratch\colorectal_histology_tf_foundation
+cd C:\path_to_dir
 
 # 1. Run Model 1: ConvNeXt-Large (70/15/15 Split)
 python main_tf.py --model-name convnext_large --epochs 15 --batch-size 32
