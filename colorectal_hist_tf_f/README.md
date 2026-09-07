@@ -47,6 +47,17 @@ colorectal_histology_tf_foundation/data/
 # Navigate to the project directory
 cd C:\path_to_dir
 
+OR
+
+cd $HOME
+git clone --filter=blob:none --no-checkout https://github.com/fortunab/family_baselines.git
+cd family_baselines
+git sparse-checkout init --cone
+git sparse-checkout set colorectal_hist_tf_f
+git checkout main
+cd colorectal_hist_tf_f
+Get-ChildItem
+
 # Install Dependencies
 pip install --upgrade pip
 pip install -r requirements.txt
@@ -77,6 +88,21 @@ python tf_compare.py
 ```bash
 # Navigate to the project directory
 cd /mnt/c/path_to_dir
+
+OR
+
+cd ~
+
+git clone --filter=blob:none --no-checkout https://github.com/fortunab/family_baselines.git
+
+cd family_baselines
+
+git sparse-checkout init --cone
+git sparse-checkout set colorectal_hist_tf_f
+git checkout main
+
+cd colorectal_hist_tf_f
+ls -la
 
 # Install Dependencies
 pip install --upgrade pip
