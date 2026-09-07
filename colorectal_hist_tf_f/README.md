@@ -72,9 +72,10 @@ python tf_compare.py
 
 ```bash
 # Navigate to the project directory
-cd /mnt/c/Users/Lenovo/.gemini/antigravity/scratch/colorectal_histology_tf_foundation
+cd /mnt/c/path_to_dir
 
 # Activate virtual environment
+python3 -m venv venv
 source venv/bin/activate
 
 # 1. ConvNeXt-Large
