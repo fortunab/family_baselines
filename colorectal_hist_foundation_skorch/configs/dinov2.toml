@@ -1,0 +1,38 @@
+# Herlev Cervical Cytology Pathology Foundation Suite - Meta DINOv2 Profile
+# Backbone: facebook/dinov2-base (Self-Supervised Vision Transformer Foundation Model)
+# Framework: skorch
+
+[dataset]
+name = "Herlev Cervical Cytology Pap Smear"
+data_dir = "data"
+num_classes = 7
+val_split = 0.15
+test_split = 0.15
+seed = 42
+subsample = 0
+
+[model]
+backbone = "facebook/dinov2-base"
+model_type = "huggingface"
+embedding_dim = 768
+pretrained = true
+
+[training]
+framework = "skorch"
+image_size = 224
+batch_size = 16
+epochs = 8
+early_stopping_patience = 5
+learning_rate = 0.0003
+weight_decay = 0.0001
+device = "cuda"
+
+[wandb]
+enabled = true
+project = "herlev-cytology-pathology-foundation"
+entity = ""
+tags = ["skorch", "foundation", "dinov2", "meta", "herlev", "cytology"]
+
+[evaluation]
+results_dir = "results"
+save_plots = true
