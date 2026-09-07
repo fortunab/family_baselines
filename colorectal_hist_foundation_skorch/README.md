@@ -117,11 +117,9 @@ OR
 
 git clone --filter=blob:none --no-checkout https://github.com/fortunab/family_baselines.git
 cd family_baselines
-
 git sparse-checkout init --cone
 git sparse-checkout set colorectal_hist_foundation_skorch
 git checkout main
-
 cd colorectal_hist_foundation_skorch
 ls -la
 
