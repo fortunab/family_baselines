@@ -91,6 +91,12 @@ python main_herlev_skorch.py --config configs/phikon.toml
 # Train Paige Virchow foundation model with skorch
 python main_herlev_skorch.py --config configs/virchow.toml
 
+# Train DINOv2 foundation model with skorch
+python main_herlev_skorch.py --config configs/dinov2.toml
+
+# Train BioMedCLIP foundation model with skorch
+python main_herlev_skorch.py --config configs/biomedclip.toml
+
 # Generate cross-model comparison leaderboard and plots
 python compare_herlev_models.py
 ```
@@ -112,6 +118,8 @@ pip install -r requirements.txt
 python run_linter.py
 
 # Train foundation models
+python main_herlev_skorch.py --config configs/phikon.toml
+python main_herlev_skorch.py --config configs/virchow.toml
 python main_herlev_skorch.py --config configs/dinov2.toml
 python main_herlev_skorch.py --config configs/biomedclip.toml
 ```
