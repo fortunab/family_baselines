@@ -47,6 +47,10 @@ colorectal_histology_tf_foundation/data/
 # Navigate to the project directory
 cd C:\path_to_dir
 
+# Install Dependencies
+pip install --upgrade pip
+pip install -r requirements.txt
+
 # 1. Run Model 1: ConvNeXt-Large (70/15/15 Split)
 python main_tf.py --model-name convnext_large --epochs 15 --batch-size 32
 
@@ -73,6 +77,10 @@ python tf_compare.py
 ```bash
 # Navigate to the project directory
 cd /mnt/c/path_to_dir
+
+# Install Dependencies
+pip install --upgrade pip
+pip install -r requirements.txt
 
 # Activate virtual environment
 python3 -m venv venv
