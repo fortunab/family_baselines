@@ -59,6 +59,14 @@ kaggle datasets download -d yuvrajsinhachowdhury/herlev-dataset -p ./data --unzi
 # Navigate to the project directory
 cd C:\Users\Lenovo\.gemini\antigravity\scratch\herlev_cervical_baseline
 
+# 1. Virtual Environment Setup
+python -m venv venv_foundation_skorch
+source venv_foundation_skorch/bin/activate
+
+# 2. Install Dependencies
+pip install --upgrade pip
+pip install -r requirements.txt
+
 # Tier 1: Classical SVM (70/15/15 Split)
 python main_svm.py
 
@@ -82,6 +90,14 @@ python compare_baselines.py
 ```bash
 # Navigate to the project directory
 cd /mnt/c/Users/Lenovo/.gemini/antigravity/scratch/herlev_cervical_baseline
+
+# 1. Virtual Environment Setup
+python3 -m venv venv_foundation_skorch
+source venv_foundation_skorch/bin/activate
+
+# 2. Install Dependencies
+pip install --upgrade pip
+pip install -r requirements.txt
 
 # Activate virtual environment
 source venv/bin/activate
