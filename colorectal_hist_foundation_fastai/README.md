@@ -74,6 +74,7 @@ cd family_baselines
 git sparse-checkout init --cone
 git sparse-checkout set colorectal_hist_foundation_fastai/src
 git checkout main
+(git pull --ff-only origin main)
 cd colorectal_hist_foundation_fastai\src
 Get-ChildItem
 
@@ -122,6 +123,7 @@ cd family_baselines
 git sparse-checkout init --cone
 git sparse-checkout set colorectal_hist_foundation_fastai/src
 git checkout main
+(git pull --ff-only origin main)
 cd colorectal_hist_foundation_fastai/src
 ls -la
 
