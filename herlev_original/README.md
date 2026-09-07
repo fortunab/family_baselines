@@ -56,6 +56,14 @@ python download_mde_herlev.py
 # Navigate to the project directory
 cd C:\Users\Lenovo\.gemini\antigravity\scratch\herlev_original_mde_baseline
 
+# 1. Create & Activate Virtual Environment
+python -m venv venv_foundation_skorch
+.\venv_foundation_skorch\Scripts\activate
+
+# 2. Install Dependencies
+pip install --upgrade pip
+pip install -r requirements.txt
+
 # Tier 1: Classical SVM (70/15/15 Split)
 python main_svm.py
 
@@ -80,8 +88,13 @@ python compare_baselines.py
 # Navigate to the project directory
 cd /mnt/c/Users/Lenovo/.gemini/antigravity/scratch/herlev_original_mde_baseline
 
-# Activate virtual environment
-source venv/bin/activate
+# 1. Virtual Environment Setup
+python3 -m venv venv_foundation_skorch
+source venv_foundation_skorch/bin/activate
+
+# 2. Install Dependencies
+pip install --upgrade pip
+pip install -r requirements.txt
 
 # Tier 1: Classical SVM
 python3 main_svm.py
