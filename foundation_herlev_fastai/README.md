@@ -122,6 +122,12 @@ python main_herlev_fastai.py --config configs/phikon.toml
 python main_herlev_fastai.py --config configs/virchow.toml
 python main_herlev_fastai.py --config configs/dinov2.toml
 python main_herlev_fastai.py --config configs/biomedclip.toml
+
+
+# Run all parts 
+chmod +x run_all.sh
+./run_all.sh
+
 ```
 
 ---
