@@ -60,8 +60,8 @@ kaggle datasets download -d yuvrajsinhachowdhury/herlev-dataset -p ./data --unzi
 cd your_path/~/family_baselines/herlev_k
 
 # 1. Virtual Environment Setup
-python -m venv venv_herlek_k
-source venv_herlek_k/bin/activate
+python -m venv venv_herlev_k
+source venv_herlev_k/bin/activate
 
 # 2. Install Dependencies
 pip install --upgrade pip
@@ -90,8 +90,8 @@ cd ~/family_baselines/herlev_k
 
 
 # 1. Virtual Environment Setup
-python3 -m venv venv_herlek_k
-source venv_herlek_k/bin/activate
+python3 -m venv venv_herlev_k
+source venv_herlev_k/bin/activate
 
 # 2. Install Dependencies
 pip install --upgrade pip
