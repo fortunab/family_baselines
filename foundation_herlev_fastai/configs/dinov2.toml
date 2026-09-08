@@ -1,0 +1,39 @@
+# Herlev Cervical Cytology Pathology Foundation Suite - Meta DINOv2 Profile
+# Backbone: facebook/dinov2-base (Self-Supervised Vision Transformer Foundation Model)
+# Framework: fastai
+
+[dataset]
+name = "Herlev Cervical Cytology Pap Smear"
+data_dir = "data"
+num_classes = 7
+val_split = 0.15
+test_split = 0.15
+seed = 42
+subsample = 0
+
+[model]
+backbone = "facebook/dinov2-base"
+model_type = "huggingface"
+embedding_dim = 768
+pretrained = true
+
+[training]
+framework = "fastai"
+image_size = 224
+batch_size = 16
+epochs = 8
+freeze_epochs = 1
+learning_rate = 0.0003
+weight_decay = 0.01
+max_rotate = 15.0
+max_zoom = 1.1
+
+[wandb]
+enabled = true
+project = "herlev-cytology-pathology-foundation"
+entity = ""
+tags = ["fastai", "foundation", "dinov2", "meta", "herlev", "cytology"]
+
+[evaluation]
+results_dir = "results"
+save_plots = true
