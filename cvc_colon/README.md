@@ -51,6 +51,13 @@ python download_cvc_colon.py
 # Navigate to the project directory
 cd C:\Users\Lenovo\.gemini\antigravity\scratch\cvc_colon_baseline
 
+# Create and activate virtual environment
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+
+# Install dependencies
+pip install -r requirements.txt
+
 # Tier 1: Classical SVM (70/15/15 Split)
 python main_svm.py
 
@@ -76,7 +83,11 @@ python compare_baselines.py
 cd /mnt/c/Users/Lenovo/.gemini/antigravity/scratch/cvc_colon_baseline
 
 # Activate virtual environment
+python3 -m venv venv
 source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
 
 # Tier 1: Classical SVM
 python3 main_svm.py
