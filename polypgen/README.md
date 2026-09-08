@@ -59,6 +59,14 @@ python download_synapse_polypgen.py --auth-token YOUR_SYNAPSE_TOKEN
 ```powershell
 cd C:\Users\Lenovo\.gemini\antigravity\scratch\polypgen_baseline
 
+# 1. Create & Activate Virtual Environment
+python -m venv venv_histology_fastai
+.\venv_histology_fastai\Scripts\activate
+
+# 2. Install Dependencies
+pip install --upgrade pip
+pip install -r requirements.txt
+
 # Tier 1: Classical SVM (70/15/15 Split)
 python main_svm.py
 
@@ -81,7 +89,14 @@ python compare_baselines.py
 
 ```bash
 cd /mnt/c/Users/Lenovo/.gemini/antigravity/scratch/polypgen_baseline
-source venv/bin/activate
+
+# 1. Create & Activate Virtual Environment
+python3 -m venv venv_histology_fastai
+source venv_histology_fastai/bin/activate
+
+# 2. Install Dependencies
+pip install --upgrade pip
+pip install -r requirements.txt
 
 python3 main_svm.py
 python3 main_convnext.py --model-name convnext_tiny --epochs 15 --batch-size 32
