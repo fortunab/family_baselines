@@ -91,6 +91,12 @@ python main_herlev_fastai.py --config configs/phikon.toml
 # Train Paige Virchow foundation model
 python main_herlev_fastai.py --config configs/virchow.toml
 
+# Train DINOV2 foundation model
+python main_herlev_fastai.py --config configs/dinov2.toml
+
+# Train BeoMedCLIP foundation model
+python main_herlev_fastai.py --config configs/biomedclip.toml
+
 # Generate cross-model comparison leaderboard and plots
 python compare_herlev_models.py
 ```
@@ -112,6 +118,8 @@ pip install -r requirements.txt
 python run_linter.py
 
 # Train foundation models
+python main_herlev_fastai.py --config configs/phikon.toml
+python main_herlev_fastai.py --config configs/virchow.toml
 python main_herlev_fastai.py --config configs/dinov2.toml
 python main_herlev_fastai.py --config configs/biomedclip.toml
 ```
