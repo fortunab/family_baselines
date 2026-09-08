@@ -99,7 +99,7 @@ python compare_herlev_models.py
 
 ```bash
 # Navigate to directory
-cd herlev_pathology_foundation_fastai
+cd your_path
 
 # Create and activate virtual environment
 python3 -m venv venv
