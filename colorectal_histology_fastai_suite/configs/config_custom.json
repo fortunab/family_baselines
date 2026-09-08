@@ -1,0 +1,45 @@
+{
+  "PROJECT": {
+    "project_name": "colorectal_histology_json",
+    "experiment_name": "fastai_json_run",
+    "seed": 0
+  },
+  "DATA": {
+    "data_dir": "./data",
+    "results_dir": "./results",
+    "image_size": 224,
+    "val_split": 0.15,
+    "test_split": 0.15,
+    "num_classes": 8,
+    "subsample": 0
+  },
+  "MODEL": {
+    "framework": "fastai",
+    "family": "vit",
+    "backbone": "vit_base_patch16_224",
+    "pretrained": true,
+    "freeze_epochs": 1
+  },
+  "TRAINING": {
+    "epochs": 8,
+    "batch_size": 16,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.05,
+    "optimizer": "adamw",
+    "lr_scheduler": "cosine",
+    "mixed_precision": false
+  },
+  "AUGMENTATION": {
+    "random_flip": true,
+    "max_rotate": 10.0,
+    "max_zoom": 1.05,
+    "max_lighting": 0.15
+  },
+  "TRACKING": {
+    "backend": "mlflow",
+    "project": "colorectal-histology-mlflow",
+    "entity": "",
+    "tags": "fastai,json,vit,mlflow",
+    "save_model_artifact": true
+  }
+}
