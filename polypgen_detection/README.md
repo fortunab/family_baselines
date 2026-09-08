@@ -58,6 +58,13 @@ This repository provides reproducible implementations of **4 performant Foundati
 # Navigate to the project directory
 cd C:\Users\Lenovo\.gemini\antigravity\scratch\polypgen_hf_detection_baseline
 
+# Create and activate virtual environment
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+
+# Install dependencies
+pip install -r requirements.txt
+
 # 1. Evaluate Model 1: Microsoft Florence-2
 python main_detection.py --model-name florence2
 
@@ -85,8 +92,12 @@ python compare_detectors.py
 # Navigate to the project directory
 cd /mnt/c/Users/Lenovo/.gemini/antigravity/scratch/polypgen_hf_detection_baseline
 
-# Activate virtual environment
+# Create and activate virtual environment
+python3 -m venv venv
 source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
 
 # 1. Florence-2
 python3 main_detection.py --model-name florence2
