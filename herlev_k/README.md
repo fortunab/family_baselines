@@ -57,7 +57,7 @@ kaggle datasets download -d yuvrajsinhachowdhury/herlev-dataset -p ./data --unzi
 
 ```powershell
 # Navigate to the project directory
-cd C:\Users\Lenovo\.gemini\antigravity\scratch\herlev_cervical_baseline
+cd your_path/~/family_baselines/herlev_k
 
 # 1. Virtual Environment Setup
 python -m venv venv_foundation_skorch
@@ -89,7 +89,8 @@ python compare_baselines.py
 
 ```bash
 # Navigate to the project directory
-cd /mnt/c/Users/Lenovo/.gemini/antigravity/scratch/herlev_cervical_baseline
+cd ~/family_baselines/herlev_k
+
 
 # 1. Virtual Environment Setup
 python3 -m venv venv_foundation_skorch
