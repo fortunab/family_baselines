@@ -64,8 +64,7 @@ python run_linter.py
 ### 🪟 Windows (PowerShell / Command Prompt)
 
 ```powershell
-cd C:\Users\your_path
-cd colorectal_histology_fastai_toml_wandb
+cd "C:\Users\YOUR_USERNAME\family_baselines\colorectal_histology_fastai_toml_wandb"
 
 # 1. Create & Activate Virtual Environment
 python -m venv venv_fastai_toml
@@ -96,8 +95,7 @@ python compare_fastai_models.py
 ### 🐧 Ubuntu / WSL2 (Linux)
 
 ```bash
-cd /mnt/c/your_path
-cd colorectal_histology_fastai_toml_wandb
+cd ~/family_baselines/colorectal_histology_fastai_toml_wandb
 
 # 1. Virtual Environment Setup
 python3 -m venv venv_fastai_toml
