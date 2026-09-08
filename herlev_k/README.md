@@ -67,9 +67,6 @@ source venv_herlek_k/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 
-# Tier 1: Classical SVM (70/15/15 Split)
-python main_svm.py
-
 # Tier 2: Modern ConvNeXt-Tiny CNN (70/15/15 Split)
 python main_convnext.py --model-name convnext_tiny --epochs 15 --batch-size 32
 
@@ -99,9 +96,6 @@ source venv_herlek_k/bin/activate
 # 2. Install Dependencies
 pip install --upgrade pip
 pip install -r requirements.txt
-
-# Tier 1: Classical SVM
-python3 main_svm.py
 
 # Tier 2: ConvNeXt-Tiny
 python3 main_convnext.py --model-name convnext_tiny --epochs 15 --batch-size 32
