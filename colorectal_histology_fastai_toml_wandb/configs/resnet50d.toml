@@ -1,0 +1,47 @@
+# ==============================================================================
+# Model 5: ResNet50d Configuration (fastai + TOML + W&B)
+# ==============================================================================
+
+[project]
+name = "colorectal_histology_fastai"
+experiment_name = "resnet50d_run"
+seed = 0
+
+[data]
+data_dir = "./data"
+results_dir = "./results"
+image_size = 224
+val_split = 0.15
+test_split = 0.15
+num_classes = 8
+subsample = 0
+
+[model]
+framework = "fastai"
+family = "resnet"
+backbone = "resnet50d"
+pretrained = true
+freeze_epochs = 1
+
+[training]
+epochs = 8
+batch_size = 16
+learning_rate = 0.001
+weight_decay = 0.0001
+optimizer = "adamw"
+lr_scheduler = "cosine"
+mixed_precision = false
+
+[augmentation]
+random_flip = true
+max_rotate = 15.0
+max_zoom = 1.1
+max_lighting = 0.2
+
+[wandb]
+enabled = true
+project = "colorectal-histology-fastai"
+entity = ""
+tags = ["fastai", "resnet", "histology", "toml"]
+log_preds = false
+save_artifact = true
