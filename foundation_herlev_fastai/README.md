@@ -143,7 +143,7 @@ data_dir = "data"
 num_classes = 7
 val_split = 0.15
 test_split = 0.15
-seed = 42
+seed = random
 
 [model]
 backbone = "owkin/phikon"
@@ -179,15 +179,3 @@ python main_herlev_fastai.py --config configs/phikon.toml --epochs 12 --batch_si
 - High-resolution evaluation plots (Confusion Matrix, ROC curves) are saved to `results/` and uploaded as W&B artifacts.
 
 ---
-
-## 7. Benchmark Results Leaderboard
-
-Results generated across the 5 foundation models on the Herlev 7-class cytology benchmark:
-
-| Rank | Foundation Model | Architecture | Accuracy | Balanced Accuracy | Macro F1 | Multi-Class ROC-AUC |
-| :---: | :--- | :--- | :---: | :---: | :---: | :---: |
-| **#1** | **Paige Virchow** | ViT-Huge (632M) | **91.25%** | **90.48%** | **90.80%** | **0.9820** |
-| **#2** | **Harvard UNI** | ViT-Large | **89.80%** | **88.90%** | **89.15%** | **0.9740** |
-| **#3** | **Owkin Phikon** | iBOT ViT-Base | **88.42%** | **87.10%** | **87.52%** | **0.9685** |
-| **#4** | **Meta DINOv2** | ViT-Base DINO | **87.15%** | **85.80%** | **86.20%** | **0.9590** |
-| **#5** | **MS BiomedCLIP** | Biomed-ViT | **86.30%** | **84.90%** | **85.30%** | **0.9510** |
