@@ -66,21 +66,6 @@ python run_linter.py
 ```powershell
 cd C:\Users\your_path
 
-OR
-
-git clone --filter=blob:none --no-checkout https://github.com/fortunab/family_baselines.git
-cd family_baselines
-(git fetch origin)
-git sparse-checkout init --cone
-git sparse-checkout set colorectal_histology_fastai_toml_wandb/src
-git checkout main
-(git pull --ff-only origin main)
-cd colorectal_histology_fastai_toml_wandb/src
-Get-ChildItem
-
-cd ..
-
-
 # 1. Create & Activate Virtual Environment
 python -m venv venv_fastai_toml
 .\venv_fastai_toml\Scripts\activate
@@ -111,21 +96,6 @@ python compare_fastai_models.py
 
 ```bash
 cd /mnt/c/your_path
-
-OR
-
-git clone --filter=blob:none --no-checkout https://github.com/fortunab/family_baselines.git
-cd family_baselines
-(git fetch origin)
-git sparse-checkout init --cone
-git sparse-checkout set colorectal_hist_foundation_fastai/src
-git checkout main
-(git pull --ff-only origin main)
-cd colorectal_hist_foundation_fastai/src
-ls -la
-
-cd ..
-
 
 # 1. Virtual Environment Setup
 python3 -m venv venv_fastai_toml
