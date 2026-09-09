@@ -1,0 +1,45 @@
+# ==============================================================================
+# Model 5: ResNet50d Configuration (skorch + TOML + W&B)
+# ==============================================================================
+
+[project]
+name = "colorectal_histology_skorch"
+experiment_name = "resnet50d_skorch_run"
+seed = 0
+
+[data]
+data_dir = "./data"
+results_dir = "./results"
+image_size = 224
+val_split = 0.15
+test_split = 0.15
+num_classes = 8
+subsample = 0
+
+[model]
+framework = "skorch"
+family = "resnet"
+backbone = "resnet50d"
+pretrained = true
+
+[training]
+epochs = 8
+batch_size = 16
+learning_rate = 0.001
+weight_decay = 0.0001
+optimizer = "adamw"
+lr_scheduler = "cosine"
+device = "cpu"
+
+[skorch]
+max_epochs = 8
+lr = 0.001
+early_stopping_patience = 5
+cross_val_folds = 3
+
+[wandb]
+enabled = true
+project = "colorectal-histology-skorch"
+entity = ""
+tags = ["skorch", "resnet", "histology", "toml"]
+save_artifact = true
