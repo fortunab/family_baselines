@@ -110,4 +110,9 @@ pip install -r requirements.txt
 python3 main_skorch_wandb.py --config configs/convnext_base.toml
 python3 main_skorch_wandb.py --config configs/resnet50d.toml
 python3 compare_skorch_models.py
+
+# Run all parts 
+chmod +x run_all.sh
+./run_all.sh
+
 ```
