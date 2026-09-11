@@ -103,4 +103,9 @@ python3 main_foundation.py --model-name dinov2_base
 
 # Compare all 4 baselines side-by-side
 python3 compare_baselines.py
+
+
+# Run all parts 
+chmod +x run_all.sh
+./run_all.sh
 ```
