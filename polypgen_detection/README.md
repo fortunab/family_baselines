@@ -113,4 +113,9 @@ python3 main_detection.py --model-name paligemma
 
 # Compare all 4 models
 python3 compare_detectors.py
+
+
+# Run all parts 
+chmod +x run_all.sh
+./run_all.sh
 ```
