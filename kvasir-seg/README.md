@@ -65,8 +65,13 @@ python compare_seg_models.py
 ### 🐧 Ubuntu / WSL (Linux)
 
 ```bash
-cd /mnt/c/Users/Lenovo/.gemini/antigravity/scratch/kvasir_seg_foundation_baseline
-source venv/bin/activate
+# Virtual Environment Setup
+cd /mnt/c/your_path
+python3 -m venv venv_kvasir_seg
+source venv_kvasir_seg/bin/activate
+
+pip install --upgrade pip
+pip install -r requirements.txt
 
 python3 main_segmentation.py --model-name medsam --epochs 10 --batch-size 4
 python3 main_segmentation.py --model-name segformer --epochs 10 --batch-size 4
