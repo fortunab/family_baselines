@@ -67,8 +67,13 @@ python compare_vqa_models.py
 ### 🐧 Ubuntu / WSL (Linux)
 
 ```bash
-cd /mnt/c/Users/Lenovo/.gemini/antigravity/scratch/path_vqa_foundation_baseline
-source venv/bin/activate
+# Virtual Environment Setup
+cd /mnt/c/your_path
+python3 -m venv venv_path_vqa
+source venv_path_vqa/bin/activate
+
+pip install --upgrade pip
+pip install -r requirements.txt
 
 python3 main_path_vqa.py --model-name biomedclip
 python3 main_path_vqa.py --model-name paligemma
