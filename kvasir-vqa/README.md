@@ -73,6 +73,9 @@ cd your_path
 python3 -m venv venv_kvasir_vqa
 source venv_kvasir_vqa/bin/activate
 
+pip install --upgrade pip
+pip install -r requirements.txt
+
 python3 main_kvasir_vqa.py --model-name florence2
 python3 main_kvasir_vqa.py --model-name paligemma
 python3 main_kvasir_vqa.py --model-name qwen2vl
