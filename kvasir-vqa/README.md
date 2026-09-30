@@ -68,8 +68,10 @@ python compare_kvasir_vqa.py
 ### 🐧 Ubuntu / WSL (Linux)
 
 ```bash
-cd /mnt/c/Users/Lenovo/.gemini/antigravity\scratch\kvasir_vqa_foundation_baseline
-source venv/bin/activate
+# Virtual Environment Setup
+cd your_path
+python3 -m venv venv_kvasir_vqa
+source venv_kvasir_vqa/bin/activate
 
 python3 main_kvasir_vqa.py --model-name florence2
 python3 main_kvasir_vqa.py --model-name paligemma
