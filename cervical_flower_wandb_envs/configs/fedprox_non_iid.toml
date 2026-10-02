@@ -1,0 +1,40 @@
+# FedProx with Severe Non-IID Dirichlet Partitioning (alpha=0.5, mu=1.0) for Cervical Cytology
+# Designed for testing label skew across participating regional cytology clinic clients
+
+[general]
+seed = 42
+device = "cuda"
+output_dir = "results"
+save_plots = true
+
+[dataset]
+name = "herlev_cervical_cytology"
+data_path = "C:/Users/Lenovo/.gemini/antigravity/scratch/herlev_cervical_baseline/data"
+image_size = 224
+num_classes = 7
+batch_size = 32
+num_workers = 0
+non_iid = true                   # Activate Non-IID Dirichlet distribution
+dirichlet_alpha = 0.5            # Concentration hyperparameter (lower = more skewed)
+test_split = 0.15                # 15% centralized holdout test set
+
+[model]
+architecture = "convnext_small"
+pretrained = true
+dropout_rate = 0.2
+
+[federated]
+strategy = "FedProx"             # Federated Proximal Optimization
+num_rounds = 10                  # Global federated communication rounds
+num_clients = 5                  # 5 hospital/cytology clinic clients
+local_epochs = 2                 # 2 local epochs per clinic per round
+local_lr = 0.0003
+proximal_mu = 1.0                # Proximal regularization parameter mu
+fraction_fit = 1.0
+
+[wandb]
+enabled = true
+project = "cervical-cells-federated-flower"
+entity = ""
+run_name = "convnext_cervical_flower_fedprox_dirichlet05"
+mode = "online"

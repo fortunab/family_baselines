@@ -1,0 +1,22 @@
+Metadata-Version: 2.4
+Name: cervical_cells_federated_flower
+Version: 1.0.0
+Summary: Cervical Cytology Federated Learning Suite with Flower (flwr), fastai, TOML configs, and Weights & Biases
+Author: AI Medical Research Team
+Requires-Python: <3.13,>=3.10
+Requires-Dist: flwr[simulation]>=1.10.0
+Requires-Dist: ray>=2.20.0
+Requires-Dist: torch>=2.0.0
+Requires-Dist: torchvision>=0.15.0
+Requires-Dist: fastai>=2.7.12
+Requires-Dist: timm>=0.9.0
+Requires-Dist: wandb>=0.16.0
+Requires-Dist: toml>=0.10.2
+Requires-Dist: scikit-learn>=1.0.0
+Requires-Dist: pandas>=1.4.0
+Requires-Dist: matplotlib>=3.5.0
+Requires-Dist: seaborn>=0.11.0
+Requires-Dist: Pillow>=9.0.0
+Requires-Dist: ruff>=0.1.0
+Requires-Dist: flake8>=6.0.0
+Requires-Dist: black>=23.0.0

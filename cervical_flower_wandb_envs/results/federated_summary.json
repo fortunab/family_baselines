@@ -1,0 +1,65 @@
+{
+  "config": {
+    "seed": "42",
+    "device": "cuda",
+    "output_dir": "results",
+    "save_plots": "True",
+    "name": "herlev_cervical_cytology",
+    "data_path": "C:/Users/Lenovo/.gemini/antigravity/scratch/herlev_cervical_baseline/data",
+    "image_size": "224",
+    "num_classes": "7",
+    "batch_size": "32",
+    "num_workers": "0",
+    "non_iid": "False",
+    "dirichlet_alpha": "0.5",
+    "test_split": "0.15",
+    "architecture": "convnext_small",
+    "pretrained": "True",
+    "dropout_rate": "0.2",
+    "strategy": "FedAvg",
+    "num_rounds": "2",
+    "num_clients": "3",
+    "local_epochs": "1",
+    "local_lr": "0.0003",
+    "proximal_mu": "1.0",
+    "fraction_fit": "1.0",
+    "enabled": "False",
+    "project": "cervical-cells-federated-flower",
+    "entity": "",
+    "run_name": "convnext_cervical_flower_fedavg",
+    "mode": "online",
+    "wandb_enabled": "False",
+    "subsample": "60"
+  },
+  "final_metrics": {
+    "round": 2,
+    "accuracy": 0.1111111111111111,
+    "balanced_accuracy": 0.14285714285714285,
+    "macro_f1": 0.028571428571428574,
+    "weighted_f1": 0.022222222222222223,
+    "macro_precision": 0.015873015873015872,
+    "macro_recall": 0.14285714285714285,
+    "macro_roc_auc": 0.5357142857142857,
+    "loss": 2.6141157150268555
+  },
+  "round_history": [
+    {
+      "round": 1,
+      "global_accuracy": 0.1111111111111111,
+      "global_balanced_acc": 0.14285714285714285,
+      "global_macro_f1": 0.028571428571428574,
+      "global_weighted_f1": 0.022222222222222223,
+      "global_macro_roc_auc": 0.625,
+      "global_loss": 2.9823086261749268
+    },
+    {
+      "round": 2,
+      "global_accuracy": 0.1111111111111111,
+      "global_balanced_acc": 0.14285714285714285,
+      "global_macro_f1": 0.028571428571428574,
+      "global_weighted_f1": 0.022222222222222223,
+      "global_macro_roc_auc": 0.5357142857142857,
+      "global_loss": 2.6141157150268555
+    }
+  ]
+}

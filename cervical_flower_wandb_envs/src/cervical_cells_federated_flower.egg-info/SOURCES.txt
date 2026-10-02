@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+src/__init__.py
+src/dataset.py
+src/evaluator.py
+src/fastai_engine.py
+src/flower_client.py
+src/flower_server.py
+src/toml_config.py
+src/wandb_tracker.py
+src/cervical_cells_federated_flower.egg-info/PKG-INFO
+src/cervical_cells_federated_flower.egg-info/SOURCES.txt
+src/cervical_cells_federated_flower.egg-info/dependency_links.txt
+src/cervical_cells_federated_flower.egg-info/requires.txt
+src/cervical_cells_federated_flower.egg-info/top_level.txt

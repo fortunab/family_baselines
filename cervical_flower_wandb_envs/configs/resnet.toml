@@ -1,0 +1,39 @@
+# ResNet50d Configuration for Cervical Cytology with Flower
+
+[general]
+seed = 42
+device = "cuda"
+output_dir = "results"
+save_plots = true
+
+[dataset]
+name = "herlev_cervical_cytology"
+data_path = "C:/Users/Lenovo/.gemini/antigravity/scratch/herlev_cervical_baseline/data"
+image_size = 224
+num_classes = 7
+batch_size = 32
+num_workers = 0
+non_iid = false
+dirichlet_alpha = 0.5
+test_split = 0.15
+
+[model]
+architecture = "resnet50d"
+pretrained = true
+dropout_rate = 0.2
+
+[federated]
+strategy = "FedAvg"
+num_rounds = 10
+num_clients = 5
+local_epochs = 2
+local_lr = 0.0003
+proximal_mu = 1.0
+fraction_fit = 1.0
+
+[wandb]
+enabled = true
+project = "cervical-cells-federated-flower"
+entity = ""
+run_name = "resnet50d_cervical_flower_fedavg"
+mode = "online"

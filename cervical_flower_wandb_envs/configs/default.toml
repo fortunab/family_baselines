@@ -1,0 +1,40 @@
+# Default Federated Learning Configuration for Cervical Cytology with Flower (flwr)
+# Architecture: ConvNeXt-Small, Dataset: Herlev 7-Class Pap Smear, Strategy: FedAvg
+
+[general]
+seed = 42
+device = "cuda"                  # "cuda" or "cpu"
+output_dir = "results"
+save_plots = true
+
+[dataset]
+name = "herlev_cervical_cytology"
+data_path = "C:/Users/Lenovo/.gemini/antigravity/scratch/herlev_cervical_baseline/data"
+image_size = 224
+num_classes = 7
+batch_size = 32
+num_workers = 0
+non_iid = false                  # Set true for Dirichlet distribution skew
+dirichlet_alpha = 0.5            # Concentration hyperparameter (lower = more skewed)
+test_split = 0.15                # 15% centralized holdout test set (unseen by clinic clients)
+
+[model]
+architecture = "convnext_small"
+pretrained = true
+dropout_rate = 0.2
+
+[federated]
+strategy = "FedAvg"              # "FedAvg", "FedProx", or "FedAdam"
+num_rounds = 10                  # Global federated communication rounds
+num_clients = 5                  # Number of participating hospital/cytology clinic clients
+local_epochs = 2                 # fastai 1-cycle epochs per round per client
+local_lr = 0.0003                # Local client learning rate
+proximal_mu = 1.0                # FedProx proximal regularizer parameter
+fraction_fit = 1.0               # Ratio of clients selected per round
+
+[wandb]
+enabled = true
+project = "cervical-cells-federated-flower"
+entity = ""
+run_name = "convnext_cervical_flower_fedavg"
+mode = "online"                  # "online", "offline", or "disabled"

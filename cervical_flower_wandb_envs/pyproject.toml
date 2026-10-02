@@ -1,0 +1,85 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cervical_cells_federated_flower"
+version = "1.0.0"
+description = "Cervical Cytology Federated Learning Suite with Flower (flwr), fastai, TOML configs, and Weights & Biases"
+authors = [{ name = "AI Medical Research Team" }]
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "flwr[simulation]>=1.10.0",
+    "ray>=2.20.0",
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+    "fastai>=2.7.12",
+    "timm>=0.9.0",
+    "wandb>=0.16.0",
+    "toml>=0.10.2",
+    "scikit-learn>=1.0.0",
+    "pandas>=1.4.0",
+    "matplotlib>=3.5.0",
+    "seaborn>=0.11.0",
+    "Pillow>=9.0.0",
+    "ruff>=0.1.0",
+    "flake8>=6.0.0",
+    "black>=23.0.0"
+]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0.0",
+    "ipython>=8.0.0"
+]
+
+[tool.black]
+line-length = 100
+target-version = ['py310', 'py311', 'py312']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | venv
+  | build
+  | dist
+  | results
+  | data
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 100
+multi_line_output = 3
+include_trailing_comma = true
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+exclude = [
+    ".git",
+    ".venv",
+    "venv",
+    "results",
+    "data"
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B"]
+ignore = [
+    "E501",  # line length handled by black/formatter
+    "B008",  # function call in default argument
+]
+
+[tool.flake8]
+max-line-length = 120
+extend-ignore = ["E203", "E501", "F401", "W503", "E226", "E402"]
+exclude = [
+    ".git",
+    "__pycache__",
+    "venv",
+    ".venv",
+    "results"
+]
