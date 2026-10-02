@@ -1,0 +1,34 @@
+# skorch + ViT / ResNet Configuration for FedML Cytology
+
+[general]
+seed = 0
+device = "cuda"
+output_dir = "results"
+framework = "skorch"
+
+[dataset]
+name = "herlev_cervical_cytology"
+num_classes = 7
+batch_size = 16
+non_iid = false
+dirichlet_alpha = 0.5
+test_split = 0.15
+
+[model]
+architecture = "resnet50"
+pretrained = true
+dropout_rate = 0.2
+
+[fedml]
+strategy = "FedAvg"
+num_rounds = 5
+num_clients = 5
+local_epochs = 2
+local_lr = 0.0003
+proximal_mu = 1.0
+
+[wandb]
+wandb_enabled = false
+project = "cervical-cells-federated-fedml"
+run_name = "fedml_skorch_resnet"
+mode = "online"

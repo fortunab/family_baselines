@@ -1,0 +1,34 @@
+# FedProx Non-IID Dirichlet Partitioning Configuration for FedML
+
+[general]
+seed = 0
+device = "cuda"
+output_dir = "results"
+framework = "fastai"
+
+[dataset]
+name = "herlev_cervical_cytology"
+num_classes = 7
+batch_size = 16
+non_iid = true
+dirichlet_alpha = 0.5
+test_split = 0.15
+
+[model]
+architecture = "convnext_small"
+pretrained = true
+dropout_rate = 0.2
+
+[fedml]
+strategy = "FedProx"
+num_rounds = 5
+num_clients = 5
+local_epochs = 2
+local_lr = 0.0003
+proximal_mu = 1.0
+
+[wandb]
+wandb_enabled = false
+project = "cervical-cells-federated-fedml"
+run_name = "fedml_fedprox_non_iid"
+mode = "online"

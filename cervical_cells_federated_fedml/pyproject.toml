@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cervical_cells_federated_fedml"
+version = "1.0.0"
+description = "FedML Federated Cervical Cytology with fastai, skorch, and Random Best Select"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    { name = "Antigravity Medical AI", email = "medical-ai@antigravity.internal" }
+]
+dependencies = [
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+    "fastai>=2.7.12",
+    "skorch>=0.15.0",
+    "timm>=0.9.0",
+    "toml>=0.10.2",
+    "wandb>=0.16.0",
+    "scikit-learn>=1.3.0",
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+    "Pillow>=9.5.0",
+    "tqdm>=4.65.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.1.0",
+    "flake8>=6.0.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "pytest>=7.0.0",
+]
+
+[tool.black]
+line-length = 120
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["src"]

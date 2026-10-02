@@ -1,0 +1,36 @@
+[workspace]
+name = "cervical_cells_federated_fedml"
+version = "1.0.0"
+description = "FedML Federated Cervical Cytology with fastai, skorch, and Random Best Select"
+authors = ["Antigravity Medical AI <medical-ai@antigravity.internal>"]
+channels = ["conda-forge"]
+platforms = ["win-64", "linux-64"]
+
+[dependencies]
+python = ">=3.11,<3.12"
+numpy = ">=1.24"
+pandas = ">=2.0"
+scipy = ">=1.10"
+scikit-learn = ">=1.3"
+matplotlib-base = ">=3.7"
+seaborn = ">=0.12"
+pillow = ">=9.5"
+tqdm = ">=4.65"
+toml = ">=0.10.2"
+ruff = ">=0.1.0"
+black = ">=23.0.0"
+flake8 = ">=6.0.0"
+
+[pypi-dependencies]
+torch = ">=2.0.0"
+torchvision = ">=0.15.0"
+fastai = ">=2.7.12"
+skorch = ">=0.15.0"
+timm = ">=0.9.0"
+wandb = ">=0.16.0"
+
+[tasks]
+test-fastai = "python main_federated_fedml.py --framework fastai --subsample 15"
+test-skorch = "python main_federated_fedml.py --framework skorch --subsample 15"
+compare = "python compare_fedml_strategies.py --subsample 15"
+lint = "python run_linter.py"
