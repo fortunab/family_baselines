@@ -1,0 +1,53 @@
+[project]
+name = "cervical-cells-federated-substra"
+version = "1.0.0"
+description = "Substra Federated Learning for 7-Class Cervical Cytology Dysplasia Grading (fastai + skorch, Random Best Select)"
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+    "fastai>=2.7.12",
+    "skorch>=0.15.0",
+    "timm>=0.9.0",
+    "toml>=0.10.2",
+    "wandb>=0.16.0",
+    "numpy>=1.20.0",
+    "scipy>=1.7.0",
+    "scikit-learn>=1.0.0",
+    "pandas>=1.4.0",
+    "matplotlib>=3.5.0",
+    "seaborn>=0.11.0",
+    "Pillow>=9.0.0",
+    "ruff>=0.1.0",
+    "flake8>=6.0.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "mypy>=1.5.0",
+]
+
+[project.optional-dependencies]
+substra = [
+    "substra>=1.0.0",
+    "substrafl>=1.0.0",
+]
+
+[tool.black]
+line-length = 120
+target-version = ["py310", "py311", "py312"]
+
+[tool.isort]
+profile = "black"
+line_length = 120
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]
+
+[tool.flake8]
+max-line-length = 120
+ignore = ["E203", "E501", "F401", "W503", "E226", "E402"]

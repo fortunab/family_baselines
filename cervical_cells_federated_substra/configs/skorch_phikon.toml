@@ -1,0 +1,37 @@
+# ==============================================================================
+# SUBSTRA FEDERATED: skorch + Owkin Phikon Foundation Model
+# ==============================================================================
+
+[general]
+seed = "random_best"
+device = "cuda"
+output_dir = "results"
+framework = "skorch"
+
+[dataset]
+name = "herlev_cervical_cytology"
+num_classes = 7
+batch_size = 16
+image_size = 224
+non_iid = false
+dirichlet_alpha = 0.5
+test_split = 0.15
+
+[model]
+architecture = "phikon"
+pretrained = true
+dropout_rate = 0.2
+
+[substra]
+strategy = "FedAvg"
+num_rounds = 10
+num_clients = 5
+local_epochs = 2
+local_lr = 0.0001
+proximal_mu = 1.0
+
+[wandb]
+wandb_enabled = true
+project = "cervical-cells-federated-substra"
+run_name = "substra_cervical_skorch_phikon"
+mode = "online"

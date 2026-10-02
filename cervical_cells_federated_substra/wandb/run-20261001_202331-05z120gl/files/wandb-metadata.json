@@ -1,0 +1,40 @@
+{
+  "os":  "Windows-10-10.0.26200-SP0",
+  "python":  "CPython 3.11.16",
+  "startedAt":  "2026-10-01T17:23:31.904153Z",
+  "args":  [
+    "--config",
+    "configs/default.toml",
+    "--framework",
+    "fastai"
+  ],
+  "program":  "C:\\Users\\Lenovo\\.gemini\\antigravity\\scratch\\cervical_cells_federated_substra\\main_federated_substra.py",
+  "codePath":  "main_federated_substra.py",
+  "codePathLocal":  "main_federated_substra.py",
+  "email":  "diogen.babuc00@e-uvt.ro",
+  "root":  "C:\\Users\\Lenovo\\.gemini\\antigravity\\scratch\\cervical_cells_federated_substra",
+  "host":  "DESKTOP-KT9GNBE",
+  "executable":  "C:\\Users\\Lenovo\\.gemini\\antigravity\\scratch\\cervical_cells_federated_substra\\.pixi\\envs\\default\\python.exe",
+  "cpu_count":  8,
+  "cpu_count_logical":  16,
+  "gpu":  "GeForce GTX 1660 Ti",
+  "gpu_count":  1,
+  "disk":  {
+    "/":  {
+      "total":  "999115771904",
+      "used":  "442144505856"
+    }
+  },
+  "memory":  {
+    "total":  "16505966592"
+  },
+  "gpu_nvidia":  [
+    {
+      "name":  "GeForce GTX 1660 Ti",
+      "architecture":  "Turing",
+      "uuid":  "GPU-f4c7101c-61a8-e112-7fbd-4d31dfa504c6"
+    }
+  ],
+  "cudaVersion":  "11.1",
+  "writerId":  "5boli51z4w2tmzarj5flwa63gibakrag"
+}

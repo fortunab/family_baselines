@@ -1,0 +1,38 @@
+[workspace]
+name = "cervical-cells-federated-substra"
+version = "1.0.0"
+description = "Substra Federated Learning for Cervical Cytology Dysplasia Grading (fastai + skorch, Random Best Select)"
+channels = ["pytorch", "conda-forge"]
+platforms = ["win-64", "linux-64"]
+
+[dependencies]
+python = ">=3.11,<3.12"
+numpy = ">=1.22.0"
+pandas = ">=1.4.0"
+scipy = ">=1.7.0"
+scikit-learn = ">=1.0.0"
+matplotlib = ">=3.5.0"
+seaborn = ">=0.11.0"
+pillow = ">=9.0.0"
+toml = ">=0.10.2"
+pip = "*"
+
+[pypi-dependencies]
+torch = ">=2.0.0"
+torchvision = ">=0.15.0"
+fastai = ">=2.7.12"
+skorch = ">=0.15.0"
+timm = ">=0.9.0"
+wandb = ">=0.16.0"
+ruff = ">=0.1.0"
+flake8 = ">=6.0.0"
+black = ">=23.0.0"
+isort = ">=5.12.0"
+mypy = ">=1.5.0"
+
+[tasks]
+dry-run = "python main_federated_substra.py --config configs/default.toml --num_rounds 2 --num_clients 3 --local_epochs 1 --subsample 60 --no_wandb"
+train-fastai = "python main_federated_substra.py --config configs/default.toml --framework fastai"
+train-skorch = "python main_federated_substra.py --config configs/default.toml --framework skorch"
+benchmark = "python compare_substra_strategies.py --rounds 3"
+lint = "python run_linter.py"

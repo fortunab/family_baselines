@@ -1,0 +1,116 @@
+_wandb:
+    value:
+        cli_version: 0.30.0
+        e:
+            5boli51z4w2tmzarj5flwa63gibakrag:
+                args:
+                    - --config
+                    - configs/default.toml
+                    - --framework
+                    - fastai
+                codePath: main_federated_substra.py
+                codePathLocal: main_federated_substra.py
+                cpu_count: 8
+                cpu_count_logical: 16
+                cudaVersion: "11.1"
+                disk:
+                    /:
+                        total: "999115771904"
+                        used: "442144505856"
+                email: diogen.babuc00@e-uvt.ro
+                executable: C:\Users\Lenovo\.gemini\antigravity\scratch\cervical_cells_federated_substra\.pixi\envs\default\python.exe
+                gpu: GeForce GTX 1660 Ti
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Turing
+                      name: GeForce GTX 1660 Ti
+                      uuid: GPU-f4c7101c-61a8-e112-7fbd-4d31dfa504c6
+                host: DESKTOP-KT9GNBE
+                memory:
+                    total: "16505966592"
+                os: Windows-10-10.0.26200-SP0
+                program: C:\Users\Lenovo\.gemini\antigravity\scratch\cervical_cells_federated_substra\main_federated_substra.py
+                python: CPython 3.11.16
+                root: C:\Users\Lenovo\.gemini\antigravity\scratch\cervical_cells_federated_substra
+                startedAt: "2026-10-01T17:23:31.904153Z"
+                writerId: 5boli51z4w2tmzarj5flwa63gibakrag
+        m: []
+        python_version: 3.11.16
+        t:
+            "1":
+                - 1
+                - 5
+                - 32
+                - 41
+                - 49
+                - 53
+                - 63
+            "2":
+                - 1
+                - 5
+                - 32
+                - 41
+                - 49
+                - 53
+                - 63
+            "3":
+                - 13
+                - 16
+            "4": 3.11.16
+            "5": 0.30.0
+            "8":
+                - 3
+            "10":
+                - 20
+            "12": 0.30.0
+            "13": windows-amd64
+active_seed:
+    value: 278526
+architecture:
+    value: convnext_small
+batch_size:
+    value: 32
+device:
+    value: cuda
+dirichlet_alpha:
+    value: 0.5
+dropout_rate:
+    value: 0.2
+framework:
+    value: fastai
+image_size:
+    value: 224
+local_epochs:
+    value: 2
+local_lr:
+    value: 0.0003
+mode:
+    value: online
+name:
+    value: herlev_cervical_cytology
+non_iid:
+    value: 0
+num_classes:
+    value: 7
+num_clients:
+    value: 5
+num_rounds:
+    value: 10
+output_dir:
+    value: results
+pretrained:
+    value: 1
+project:
+    value: cervical-cells-federated-substra
+proximal_mu:
+    value: 1
+run_name:
+    value: substra_cervical_fedavg_fastai
+seed:
+    value: random_best
+strategy:
+    value: FedAvg
+test_split:
+    value: 0.15
+wandb_enabled:
+    value: 1
