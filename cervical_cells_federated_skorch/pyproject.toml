@@ -1,0 +1,90 @@
+[project]
+name = "cervical_cells_federated_skorch"
+version = "1.0.0"
+description = "Cervical Cytology Federated Learning Suite with Flower (flwr), skorch, TOML configs, and W&B"
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "flwr[simulation]>=1.15.0",
+    "ray>=2.20.0",
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+    "skorch>=0.15.0",
+    "timm>=0.9.0",
+    "toml>=0.10.2",
+    "wandb>=0.16.0",
+    "numpy>=1.22.0",
+    "scipy>=1.7.0",
+    "scikit-learn>=1.0.0",
+    "pandas>=1.4.0",
+    "matplotlib>=3.5.0",
+    "seaborn>=0.11.0",
+    "pillow>=9.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.1.0",
+    "flake8>=6.0.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "mypy>=1.5.0",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 120
+target-version = ['py310', 'py311', 'py312']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | venv
+  | venv_cervical_skorch
+  | build
+  | dist
+  | results
+  | data
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 120
+multi_line_output = 3
+include_trailing_comma = true
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+exclude = [
+    ".git",
+    ".venv",
+    "venv",
+    "venv_cervical_skorch",
+    "results",
+    "data"
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = [
+    "E501",  # line length handled by black
+    "F401",  # unused import
+]
+
+[tool.flake8]
+max-line-length = 120
+extend-ignore = ["E203", "E501", "F401", "W503", "E226", "E402"]
+exclude = [
+    ".git",
+    "__pycache__",
+    "venv",
+    ".venv",
+    "venv_cervical_skorch",
+    "results"
+]

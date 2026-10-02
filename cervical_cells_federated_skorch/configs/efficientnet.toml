@@ -1,0 +1,37 @@
+# EfficientNetV2 Configuration for Cervical Cytology with Flower & skorch
+
+[general]
+seed = 42
+device = "cuda"
+output_dir = "results"
+save_plots = true
+
+[dataset]
+name = "herlev_cervical_cytology"
+data_path = "C:/Users/Lenovo/.gemini/antigravity/scratch/herlev_cervical_baseline/data"
+image_size = 224
+num_classes = 7
+batch_size = 32
+non_iid = false
+dirichlet_alpha = 0.5
+test_split = 0.15
+
+[model]
+architecture = "efficientnet_b3"
+pretrained = true
+dropout_rate = 0.2
+
+[federated]
+strategy = "FedAvg"
+num_rounds = 10
+num_clients = 5
+local_epochs = 2
+local_lr = 0.0003
+fraction_fit = 1.0
+
+[wandb]
+enabled = true
+project = "cervical-cells-federated-skorch"
+run_name = "efficientnet_cervical_skorch_fedavg"
+mode = "online"
+tags = ["federated", "flower", "skorch", "cervical", "herlev", "efficientnet"]

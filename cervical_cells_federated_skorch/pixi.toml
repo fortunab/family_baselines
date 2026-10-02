@@ -1,0 +1,39 @@
+[workspace]
+name = "cervical_cells_federated_skorch"
+version = "1.0.0"
+description = "Cervical Cytology Federated Learning Suite with Flower (flwr), skorch, TOML configs, and W&B"
+authors = ["AI Medical Research Team"]
+channels = ["conda-forge", "pytorch"]
+platforms = ["win-64", "linux-64"]
+
+[dependencies]
+python = ">=3.10,<3.13"
+numpy = ">=1.22.0"
+scipy = ">=1.7.0"
+pandas = ">=1.4.0"
+scikit-learn = ">=1.0.0"
+matplotlib = ">=3.5.0"
+seaborn = ">=0.11.0"
+pillow = ">=9.0.0"
+toml = ">=0.10.2"
+pathspec = "<0.13.0"
+ruff = ">=0.1.0"
+flake8 = ">=6.0.0"
+black = ">=23.0.0"
+isort = ">=5.12.0"
+mypy = ">=1.5.0"
+
+[pypi-dependencies]
+flwr = { version = ">=1.15.0", extras = ["simulation"] }
+ray = ">=2.20.0"
+torch = ">=2.0.0"
+torchvision = ">=0.15.0"
+skorch = ">=0.15.0"
+timm = ">=0.9.0"
+wandb = ">=0.16.0"
+
+[tasks]
+lint = "python run_linter.py"
+train = "python main_federated_skorch.py --config configs/default.toml"
+benchmark = "python compare_federated_strategies.py"
+dry-run = "python main_federated_skorch.py --config configs/default.toml --num_rounds 2 --num_clients 3 --local_epochs 1 --subsample 60 --no_wandb"

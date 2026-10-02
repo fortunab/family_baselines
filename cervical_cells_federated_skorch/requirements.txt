@@ -1,0 +1,28 @@
+# Cervical Cytology Federated Learning Suite (Flower + skorch + PyTorch)
+# Core Frameworks
+flwr[simulation]>=1.15.0
+ray>=2.20.0
+torch>=2.0.0
+torchvision>=0.15.0
+skorch>=0.15.0
+timm>=0.9.0
+
+# Configuration & MLOps
+toml>=0.10.2
+wandb>=0.16.0
+
+# Code Quality & Linting
+ruff>=0.1.0
+flake8>=6.0.0
+black>=23.0.0
+isort>=5.12.0
+mypy>=1.5.0
+
+# Numerical Computing & Data Processing
+numpy>=1.22.0
+scipy>=1.7.0
+scikit-learn>=1.0.0
+pandas>=1.4.0
+matplotlib>=3.5.0
+seaborn>=0.11.0
+Pillow>=9.0.0

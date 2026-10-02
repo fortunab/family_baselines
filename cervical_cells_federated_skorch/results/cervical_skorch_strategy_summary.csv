@@ -1,0 +1,4 @@
+Strategy,Accuracy,Balanced_Accuracy,Macro_F1,Macro_ROC_AUC,Final_Loss
+FedAvg,0.00%,0.00%,0.0000,0.3724,2.0335
+FedProx,11.11%,14.29%,0.0408,0.4821,2.0187
+FedAdam,11.11%,14.29%,0.0286,0.4821,3.2010

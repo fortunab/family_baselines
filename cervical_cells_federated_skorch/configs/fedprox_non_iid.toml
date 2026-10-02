@@ -1,0 +1,39 @@
+# FedProx Non-IID Dirichlet Skew Configuration for Cervical Cytology with Flower & skorch
+
+[general]
+seed = 42
+device = "cuda"
+output_dir = "results"
+save_plots = true
+
+[dataset]
+name = "herlev_cervical_cytology"
+data_path = "C:/Users/Lenovo/.gemini/antigravity/scratch/herlev_cervical_baseline/data"
+image_size = 224
+num_classes = 7
+batch_size = 32
+num_workers = 0
+non_iid = true                   # Dirichlet non-IID class distribution skew
+dirichlet_alpha = 0.5            # Concentration hyperparameter
+test_split = 0.15
+
+[model]
+architecture = "convnext_small"
+pretrained = true
+dropout_rate = 0.2
+
+[federated]
+strategy = "FedProx"             # FedProx algorithm
+num_rounds = 10
+num_clients = 5
+local_epochs = 2
+local_lr = 0.0003
+proximal_mu = 1.0                # FedProx proximal penalty weight
+fraction_fit = 1.0
+
+[wandb]
+enabled = true
+project = "cervical-cells-federated-skorch"
+run_name = "convnext_cervical_skorch_fedprox_non_iid"
+mode = "online"
+tags = ["federated", "flower", "skorch", "cervical", "herlev", "fedprox", "non_iid"]
