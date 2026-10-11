@@ -1,0 +1,41 @@
+# Substra Configuration with fastai & VAE Preprocessing
+# Backend: Substra | Framework: fastai | Strategy: FedAvg | Preprocessing: vae
+
+[general]
+seed = 0
+device = "cuda"
+output_dir = "results"
+federated_backend = "substra"
+framework = "fastai"
+
+[preprocessing]
+preprocessing = "vae"
+vae_latent_dim = 128
+image_size = 224
+
+[dataset]
+name = "herlev_cervical_cytology"
+num_classes = 7
+batch_size = 16
+non_iid = false
+dirichlet_alpha = 0.5
+test_split = 0.15
+
+[model]
+architecture = "convnext_small"
+pretrained = true
+dropout_rate = 0.2
+
+[federated]
+strategy = "FedAvg"
+num_rounds = 5
+num_clients = 5
+local_epochs = 2
+local_lr = 0.0003
+proximal_mu = 1.0
+
+[wandb]
+wandb_enabled = false
+project = "cervical-cells-vae-flower-substra"
+run_name = "substra_fastai_vae_fedavg"
+mode = "online"

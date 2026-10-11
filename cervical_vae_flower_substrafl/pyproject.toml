@@ -1,0 +1,29 @@
+[project]
+name = "cervical_cells_vae_flower_substra"
+version = "1.0.0"
+description = "Cervical Cytology Federated Flower & Substra with VAE Preprocessing, fastai, skorch, and Random Best Select"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+
+[tool.ruff]
+line-length = 120
+exclude = [
+    ".pixi",
+    ".venv",
+    "venv",
+    "__pycache__",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501", "F401", "E402"]
+
+[tool.black]
+line-length = 120
+exclude = '''
+/(
+    \.pixi
+  | \.venv
+  | venv
+)/
+'''

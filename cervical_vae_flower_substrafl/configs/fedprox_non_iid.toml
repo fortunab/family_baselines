@@ -1,0 +1,41 @@
+# FedProx Non-IID Configuration for Flower & Substra with VAE Preprocessing
+# Backend: Flower | Framework: fastai | Strategy: FedProx (mu=1.0) | Non-IID Dirichlet (alpha=0.5)
+
+[general]
+seed = 0
+device = "cuda"
+output_dir = "results"
+federated_backend = "flower"
+framework = "fastai"
+
+[preprocessing]
+preprocessing = "vae"
+vae_latent_dim = 128
+image_size = 224
+
+[dataset]
+name = "herlev_cervical_cytology"
+num_classes = 7
+batch_size = 16
+non_iid = true
+dirichlet_alpha = 0.5
+test_split = 0.15
+
+[model]
+architecture = "convnext_small"
+pretrained = true
+dropout_rate = 0.2
+
+[federated]
+strategy = "FedProx"
+num_rounds = 5
+num_clients = 5
+local_epochs = 2
+local_lr = 0.0003
+proximal_mu = 1.0
+
+[wandb]
+wandb_enabled = false
+project = "cervical-cells-vae-flower-substra"
+run_name = "flower_fastai_vae_fedprox_non_iid"
+mode = "online"
