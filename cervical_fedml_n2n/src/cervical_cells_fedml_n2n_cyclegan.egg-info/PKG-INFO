@@ -1,0 +1,194 @@
+Metadata-Version: 2.4
+Name: cervical_cells_fedml_n2n_cyclegan
+Version: 1.0.0
+Summary: FedML Federated Cervical Cytology with Noise2Noise & CycleGAN Preprocessing, fastai, skorch, and Random Best Select
+Requires-Python: <3.12,>=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: torch>=2.0.0
+Requires-Dist: torchvision>=0.15.0
+Requires-Dist: fastai>=2.7.12
+Requires-Dist: skorch>=0.15.0
+Requires-Dist: timm>=0.9.0
+Requires-Dist: numpy>=1.24.0
+Requires-Dist: pandas>=2.0.0
+Requires-Dist: scipy>=1.10.0
+Requires-Dist: scikit-learn>=1.3.0
+Requires-Dist: scikit-image>=0.21.0
+Requires-Dist: matplotlib>=3.7.0
+Requires-Dist: seaborn>=0.12.0
+Requires-Dist: pillow>=9.5.0
+Requires-Dist: tqdm>=4.65.0
+Requires-Dist: wandb>=0.16.0
+Provides-Extra: dev
+Requires-Dist: ruff>=0.1.0; extra == "dev"
+Requires-Dist: black>=23.0.0; extra == "dev"
+Requires-Dist: flake8>=6.0.0; extra == "dev"
+
+# FedML Cervical Cytology with Noise2Noise & CycleGAN Preprocessing
+
+A clinical-grade Federated Learning suite built with **FedML**, featuring dual advanced cellular preprocessing: **Noise2Noise (N2N)** blind sensor denoising and **CycleGAN** unpaired inter-clinic stain harmonization. Supports both **fastai** and **skorch** deep learning backends, 3 federated aggregation algorithms (**FedAvg**, **FedProx**, **FedAdam**), multi-candidate **Random Best Select** seed optimization (strictly rejecting seed 42), comprehensive performance evaluation metrics, and 5 environment managers (**Pixi**, **uv**, **Conda**, **venv**, **Pyenv**).
+
+---
+
+## 🔬 Architecture & Preprocessing Pipeline Overview
+
+```
+                      [Raw Cervical Micrographs]
+                                  │
+                                  ▼
+                     ┌─────────────────────────┐
+                     │ Stage 1: Noise2Noise    │  (Suppress optical & sensor noise;
+                     │ Denoising (U-Net)       │   preserve chromatin texture)
+                     └────────────┬────────────┘
+                                  │
+                                  ▼
+                     ┌─────────────────────────┐
+                     │ Stage 2: CycleGAN Stain │  (Harmonize inter-clinic Papanicolaou
+                     │ Normalization (ResNet)  │   stain variations across silos)
+                     └────────────┬────────────┘
+                                  │
+                                  ▼
+                   [Restored Standardized Cytology]
+                                  │
+       ┌──────────────────────────┴──────────────────────────┐
+       │                                                     │
+       ▼                                                     ▼
+┌─────────────────────────┐                           ┌─────────────────────────┐
+│ Hospital Client Silo 01 │                           │ Hospital Client Silo 02 │
+│  (Local fastai/skorch)  │                           │  (Local fastai/skorch)  │
+└────────────┬────────────┘                           └────────────┬────────────┘
+             │                                                     │
+             └──────────────────────────┬──────────────────────────┘
+                                        ▼
+                         ┌─────────────────────────────┐
+                         │ FedML Central Server        │
+                         │ Aggregator (FedAvg/Prox)    │
+                         └──────────────┬──────────────┘
+                                        ▼
+                         ┌─────────────────────────────┐
+                         │ Centralized Holdout Eval    │
+                         │ (11 Clinical & Preproc Q)   │
+                         └─────────────────────────────┘
+```
+
+---
+
+## 📊 Preprocessing Techniques
+
+| Preprocessing Flag | Description | Primary Medical Utility |
+|---|---|---|
+| `--preprocessing none` | Raw unaltered cytology tiles | Baseline control for ablation studies |
+| `--preprocessing n2n` | Noise2Noise blind restoration | Removes sensor/shot noise without ground-truth scans; enhances chromatin granulometry |
+| `--preprocessing cyclegan` | Unpaired ResNet stain harmonizer | Eliminates inter-institutional color drift from varying Papanicolaou dye batches |
+| `--preprocessing n2n_cyclegan` | Dual sequential pipeline | First removes optical artifacts, then unifies stain distributions across hospital silos |
+
+---
+
+## 📈 Comprehensive Performance Evaluation Metrics
+
+### Clinical Classification Metrics
+1. **Accuracy**: Overall prediction correctness.
+2. **Balanced Accuracy**: Macro-average recall across all 7 diagnostic classes (robust to class imbalance).
+3. **Macro & Weighted Precision**: Positive predictive value across diagnostic categories.
+4. **Macro & Weighted Recall / Sensitivity**: Detection rate of dysplastic/malignant cells.
+5. **Macro Specificity**: Rate of correctly identified true negatives across all cell classes.
+6. **Macro & Weighted F1-Score**: Harmonic mean of precision and recall.
+7. **Cohen's Kappa ($\kappa$)**: Inter-rater agreement accounting for chance agreement.
+8. **Matthews Correlation Coefficient (MCC)**: High-quality metric for imbalanced multi-class evaluations.
+9. **Macro AUC-ROC (One-vs-Rest)**: Class-separable discriminative capability.
+10. **Log-Loss (Cross-Entropy)**: Uncertainty and probabilistic calibration.
+
+### Micrograph Restoration & Quality Metrics
+11. **PSNR (Peak Signal-to-Noise Ratio in dB)**: Logarithmic measure of signal reconstruction fidelity.
+12. **SSIM (Structural Similarity Index)**: Preservation of structural texture, luminance, and contrast.
+13. **Shannon Distribution Entropy**: Information density and chromatin detail richness.
+
+---
+
+## 🚀 Quickstart
+
+### Option 1: Pixi (Recommended)
+```powershell
+# Install & run full pipeline with dual preprocessing
+pixi run test-dual
+
+# Run comparative benchmark across all 4 preprocessing strategies
+pixi run compare
+```
+
+### Option 2: Conda
+```powershell
+conda activate cervical_cells_fedml_n2n_cyclegan
+python main_federated_fedml.py --preprocessing n2n_cyclegan --framework fastai
+```
+
+### Option 3: uv
+```powershell
+uv run python main_federated_fedml.py --preprocessing n2n_cyclegan --framework skorch
+```
+
+---
+
+## ⚙️ CLI Reference
+
+```
+python main_federated_fedml.py [OPTIONS]
+
+  --config PATH               Path to base TOML config file (default: configs/default.toml)
+  --preprocessing MODE        Preprocessing pipeline: none | n2n | cyclegan | n2n_cyclegan
+  --framework FW              Deep learning backend: fastai | skorch (default: fastai)
+  --strategy STRAT            FedML aggregation strategy: FedAvg | FedProx | FedAdam
+  --rounds INT                Federated communication rounds (default: 5)
+  --clients INT               Decentralized hospital silos (default: 5)
+  --epochs INT                Local client training epochs (default: 2)
+  --lr FLOAT                  Local learning rate (default: 0.0003)
+  --seed INT                  Explicit random seed (replaces 42 if specified)
+  --random_best_select        Enable multi-candidate Random Best Select seed search (default: true)
+  --candidates INT            Number of cryptographic seed candidates evaluated (default: 5)
+  --subsample INT             Limit samples per silo for fast testing / dry runs
+  --no_wandb                  Disable Weights & Biases logging
+```
+
+---
+
+## 📁 Repository Structure
+
+```
+cervical_cells_fedml_n2n_cyclegan/
+├── configs/
+│   ├── default.toml
+│   ├── n2n_denoised.toml
+│   ├── cyclegan_harmonized.toml
+│   ├── n2n_cyclegan_full.toml
+│   ├── skorch_n2n_cyclegan.toml
+│   └── fedprox_non_iid.toml
+├── scripts/
+│   ├── setup_pixi.ps1 / .sh
+│   ├── setup_uv.ps1 / .sh
+│   ├── setup_conda.ps1 / .sh
+│   ├── setup_venv.ps1 / .sh
+│   └── setup_pyenv.ps1 / .sh
+├── src/
+│   ├── preprocessing/
+│   │   ├── __init__.py
+│   │   ├── n2n_preprocessor.py
+│   │   └── cyclegan_preprocessor.py
+│   ├── __init__.py
+│   ├── dataset.py
+│   ├── evaluator.py
+│   ├── fastai_engine.py
+│   ├── fedml_client.py
+│   ├── fedml_server.py
+│   ├── seed_selector.py
+│   ├── skorch_engine.py
+│   ├── toml_config.py
+│   └── wandb_tracker.py
+├── main_federated_fedml.py
+├── compare_cervical_preprocessing.py
+├── run_linter.py
+├── pixi.toml
+├── pyproject.toml
+├── environment.yml
+├── requirements.txt
+└── .python-version
+```

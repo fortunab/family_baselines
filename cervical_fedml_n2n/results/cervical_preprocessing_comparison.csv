@@ -1,0 +1,5 @@
+preprocessing,accuracy,balanced_accuracy,f1_macro,f1_weighted,precision_macro,recall_macro,specificity_macro,cohen_kappa,matthews_corrcoef,roc_auc_macro,psnr_db,ssim,rmse,entropy
+none,0.15,0.1429,0.0373,0.0391,0.0214,0.1429,0.8571,0.0,0.0,0.6319,22.2,0.9,19.7976,6.6788
+n2n,0.2,0.1429,0.0476,0.0667,0.0286,0.1429,0.8571,0.0,0.0,0.4488,17.34,0.9,34.618,5.0931
+cyclegan,0.15,0.1429,0.0373,0.0391,0.0214,0.1429,0.8571,0.0,0.0,0.6521,14.49,0.9,48.1086,5.4033
+n2n_cyclegan,0.2,0.1429,0.0476,0.0667,0.0286,0.1429,0.8571,0.0,0.0,0.5976,10.89,0.9,72.7477,6.5339

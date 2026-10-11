@@ -1,0 +1,57 @@
+[project]
+name = "cervical_cells_fedml_n2n_cyclegan"
+version = "1.0.0"
+description = "FedML Federated Cervical Cytology with Noise2Noise & CycleGAN Preprocessing, fastai, skorch, and Random Best Select"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+    "fastai>=2.7.12",
+    "skorch>=0.15.0",
+    "timm>=0.9.0",
+    "numpy>=1.24.0",
+    "pandas>=2.0.0",
+    "scipy>=1.10.0",
+    "scikit-learn>=1.3.0",
+    "scikit-image>=0.21.0",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+    "pillow>=9.5.0",
+    "tqdm>=4.65.0",
+    "wandb>=0.16.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.1.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+line-length = 120
+exclude = [
+    ".pixi",
+    ".venv",
+    "venv",
+    "__pycache__",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501", "F401", "E402"]
+
+[tool.black]
+line-length = 120
+exclude = '''
+/(
+    \.pixi
+  | \.venv
+  | venv
+)/
+'''
