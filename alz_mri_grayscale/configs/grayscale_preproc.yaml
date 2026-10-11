@@ -1,0 +1,19 @@
+# Grayscale Preprocessing Pipeline Configuration
+preprocessing:
+  target_size: [128, 128]
+  luminance_conversion: "itu_r_601"  # 0.299 R + 0.587 G + 0.114 B
+  denoising:
+    method: "gaussian"
+    sigma: 0.8
+    kernel_size: 3
+  contrast:
+    method: "clahe"
+    clip_limit: 2.0
+    tile_grid_size: [8, 8]
+  normalization:
+    method: "minmax"
+    range: [0.0, 1.0]
+    clip_percentiles: [1.0, 99.0]
+  brain_segmentation:
+    background_cutoff: 0.05
+    fill_holes: true

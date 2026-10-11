@@ -1,0 +1,116 @@
+{
+  "summary": {
+    "total_scans_processed": 514,
+    "classes_discovered": [
+      "MildDemented",
+      "ModerateDemented",
+      "NonDemented",
+      "VeryMildDemented"
+    ],
+    "compression_ratios": {
+      "original_size": [
+        176,
+        208
+      ],
+      "original_pixels": 36608,
+      "context_32x32": {
+        "dimensions": [
+          32,
+          32
+        ],
+        "pixels": 1024,
+        "compression_ratio": 35.75,
+        "data_reduction_percent": 97.2,
+        "avg_recon_ssim": 0.972,
+        "avg_recon_psnr": 22.71,
+        "avg_entropy": 5.4301
+      },
+      "context_8x8": {
+        "dimensions": [
+          8,
+          8
+        ],
+        "pixels": 64,
+        "compression_ratio": 572.0,
+        "data_reduction_percent": 99.83,
+        "avg_recon_ssim": 0.8543,
+        "avg_recon_psnr": 16.16,
+        "avg_entropy": 4.8709
+      }
+    }
+  },
+  "ml_evaluation_32x32": {
+    "Random_Forest": {
+      "accuracy": 0.9203,
+      "balanced_accuracy": 0.9099,
+      "macro_f1": 0.9193,
+      "cohen_kappa": 0.8389,
+      "referral_sensitivity": 0.0
+    },
+    "Extra_Trees": {
+      "accuracy": 0.9358,
+      "balanced_accuracy": 0.9341,
+      "macro_f1": 0.9393,
+      "cohen_kappa": 0.88,
+      "referral_sensitivity": 0.0
+    },
+    "SVM_RBF": {
+      "accuracy": 0.9475,
+      "balanced_accuracy": 0.955,
+      "macro_f1": 0.9551,
+      "cohen_kappa": 0.9335,
+      "referral_sensitivity": 0.0
+    },
+    "Hist_Gradient_Boosting": {
+      "accuracy": 0.9358,
+      "balanced_accuracy": 0.9403,
+      "macro_f1": 0.9415,
+      "cohen_kappa": 0.8933,
+      "referral_sensitivity": 0.0
+    },
+    "Logistic_Regression": {
+      "accuracy": 0.9572,
+      "balanced_accuracy": 0.9633,
+      "macro_f1": 0.9633,
+      "cohen_kappa": 0.9468,
+      "referral_sensitivity": 0.0
+    }
+  },
+  "ml_evaluation_8x8": {
+    "Random_Forest": {
+      "accuracy": 0.8774,
+      "balanced_accuracy": 0.8545,
+      "macro_f1": 0.8711,
+      "cohen_kappa": 0.7982,
+      "referral_sensitivity": 0.0
+    },
+    "Extra_Trees": {
+      "accuracy": 0.8988,
+      "balanced_accuracy": 0.8906,
+      "macro_f1": 0.9,
+      "cohen_kappa": 0.812,
+      "referral_sensitivity": 0.0
+    },
+    "SVM_RBF": {
+      "accuracy": 0.9241,
+      "balanced_accuracy": 0.935,
+      "macro_f1": 0.933,
+      "cohen_kappa": 0.9068,
+      "referral_sensitivity": 0.0
+    },
+    "Hist_Gradient_Boosting": {
+      "accuracy": 0.893,
+      "balanced_accuracy": 0.8859,
+      "macro_f1": 0.8935,
+      "cohen_kappa": 0.8262,
+      "referral_sensitivity": 0.0
+    },
+    "Logistic_Regression": {
+      "accuracy": 0.8502,
+      "balanced_accuracy": 0.8467,
+      "macro_f1": 0.8449,
+      "cohen_kappa": 0.7066,
+      "referral_sensitivity": 0.0
+    }
+  }
+}

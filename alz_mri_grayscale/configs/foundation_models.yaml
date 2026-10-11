@@ -1,0 +1,23 @@
+# Foundational Comparison Configuration
+foundation_models:
+  architectures:
+    - name: "densenet121"
+      category: "Dense Feature Reuse Standard"
+      feature_dim: 1024
+    - name: "resnet50"
+      category: "Deep Residual Standard"
+      feature_dim: 2048
+    - name: "convnext_small"
+      category: "Modern 2020s ConvNet"
+      feature_dim: 768
+    - name: "efficientnet_b0"
+      category: "Compound Scaled MBConv"
+      feature_dim: 1280
+
+training:
+  batch_size: 16
+  epochs: 3
+  learning_rate: 0.001
+  weight_decay: 0.01
+  pretrained: true
+  device: "cpu"

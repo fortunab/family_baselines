@@ -1,0 +1,56 @@
+# Master Configuration for Alzheimer MRI Grayscale Benchmark Suite
+dataset:
+  name: "Alzheimer_s_Dataset"
+  raw_data_dir: "data/raw"
+  processed_data_dir: "data/processed_grayscale"
+  image_size: 128
+  foundation_image_size: 224
+  test_size: 0.20
+  val_size: 0.15
+  seed: 42
+  classes:
+    - "NonDemented"
+    - "VeryMildDemented"
+    - "MildDemented"
+    - "ModerateDemented"
+
+preprocessing:
+  convert_grayscale: true
+  denoise_filter: "gaussian"  # none, gaussian, median
+  gaussian_sigma: 0.8
+  contrast_enhancement: "clahe"  # none, hist_eq, clahe, minmax
+  clahe_clip_limit: 2.0
+  clahe_grid_size: 8
+  skull_strip_threshold: 0.05
+  normalize_range: [0.0, 1.0]
+
+ml_family:
+  models:
+    - "svm_rbf"
+    - "random_forest"
+    - "extra_trees"
+    - "gradient_boosting"
+    - "mlp"
+    - "logistic_regression"
+    - "voting_ensemble"
+  feature_modes:
+    - "radiomic_texture_pca"
+    - "foundation_embeddings"
+  pca_variance: 0.95
+  n_estimators: 200
+
+foundation_models:
+  backbones:
+    - "densenet121"
+    - "resnet50"
+    - "convnext_small"
+    - "efficientnet_b0"
+  batch_size: 16
+  epochs: 3
+  learning_rate: 0.001
+  device: "cpu"
+
+output:
+  results_dir: "results"
+  metrics_dir: "results/metrics"
+  export_plots: true
