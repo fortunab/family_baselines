@@ -1,0 +1,6 @@
+configuration,accuracy
+Full LACNet,84.1
+Without centroid refinement,76.3
+Static (non-trainable) centroids,71.5
+Without attractor regularization,78.3
+Softmax classifier instead of attractors,77.5

@@ -1,0 +1,10 @@
+Class,Precision,Recall,F1-score
+Class 0: tumour epithelium,0.92,0.9,0.91
+Class 1: simple stroma,0.67,0.7,0.68
+Class 2: complex stroma,0.77,0.73,0.75
+Class 3: immune cell conglomerates,0.97,0.89,0.93
+Class 4: debris and mucus,0.83,0.8,0.81
+Class 5: mucosal glands,0.79,0.9,0.84
+Class 6: adipose tissue,0.98,0.82,0.9
+Class 7: background,0.85,0.98,0.91
+Macro avg.,0.85,0.84,0.84
