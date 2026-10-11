@@ -1,0 +1,40 @@
+{
+  "patient_id": "PAT_DERM_00066",
+  "lesion_id": "HAM_L_NV_00033",
+  "examination_date": "2026-10-10 18:45:06",
+  "clinical_center": "Sydney_MelanomaInstitute_Australia",
+  "dermatoscope_hardware": "DermLite_DL4_Polarized_10x",
+  "age": 24,
+  "sex": "female",
+  "localization": "chest",
+  "fitzpatrick_phototype": "Type_II",
+  "primary_diagnosis": "NV",
+  "primary_confidence": 0.8443,
+  "differential_diagnosis": [
+    {
+      "class_name": "NV",
+      "probability": 0.8443
+    },
+    {
+      "class_name": "BCC",
+      "probability": 0.0937
+    },
+    {
+      "class_name": "AKIEC",
+      "probability": 0.0337
+    }
+  ],
+  "is_malignancy_suspected": false,
+  "urgency_tier": "Routine",
+  "asymmetry_score": 0,
+  "border_score": 0,
+  "color_score": 1,
+  "colors_detected": [
+    "light_brown"
+  ],
+  "diameter_mm": 13.14,
+  "total_dermoscopy_score": 3.0,
+  "tds_risk_tier": "Benign Lesion",
+  "clinical_action_plan": "ROUTINE DERMATOLOGICAL SURVEILLANCE: Morphological features are reassuring and consistent with benign etiology. Reassure patient; advise routine monthly skin self-examination (ABCDE rule) and annual preventive dermatological screening.",
+  "report_id": "DERM-REP-_00066-202610101845"
+}

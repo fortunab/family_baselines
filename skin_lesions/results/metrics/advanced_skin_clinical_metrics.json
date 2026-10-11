@@ -1,0 +1,78 @@
+{
+  "dataset_test_samples": 84,
+  "overall_accuracy": 0.9048,
+  "balanced_accuracy": 0.9048,
+  "cohen_kappa": 0.8889,
+  "multiclass_brier_score": 0.1524,
+  "expected_calibration_error": 0.0872,
+  "partial_auc_high_specificity_80": 1.0,
+  "malignancy_referral": {
+    "sensitivity": 0.8333,
+    "sensitivity_95_ci": [
+      0.6811,
+      0.9213
+    ],
+    "specificity": 1.0,
+    "specificity_95_ci": [
+      0.9259,
+      1.0
+    ],
+    "ppv": 1.0,
+    "ppv_95_ci": [
+      0.8865,
+      1.0
+    ],
+    "npv": 0.8889,
+    "npv_95_ci": [
+      0.7781,
+      0.9481
+    ]
+  },
+  "critical_cancer_recalls": {
+    "mel_recall": 1.0,
+    "mel_tp": 12,
+    "mel_total": 12,
+    "bcc_recall": 0.6667,
+    "bcc_tp": 8,
+    "bcc_total": 12
+  },
+  "fitzpatrick_fairness": {
+    "groups": {
+      "Light_I_II": {
+        "n_samples": 31,
+        "tp": 10,
+        "fn": 2,
+        "tn": 19,
+        "fp": 0,
+        "sensitivity": 0.8333,
+        "specificity": 1.0
+      },
+      "Medium_III_IV": {
+        "n_samples": 32,
+        "tp": 13,
+        "fn": 3,
+        "tn": 16,
+        "fp": 0,
+        "sensitivity": 0.8125,
+        "specificity": 1.0
+      },
+      "Dark_V_VI": {
+        "n_samples": 21,
+        "tp": 7,
+        "fn": 1,
+        "tn": 13,
+        "fp": 0,
+        "sensitivity": 0.875,
+        "specificity": 1.0
+      }
+    },
+    "disparity_ratio": 0.9286,
+    "max_disparity": 0.0625,
+    "fairness_compliant": true
+  },
+  "decision_curve_analysis": {
+    "disease_prevalence": 0.4286,
+    "max_model_net_benefit": 0.4286,
+    "threshold_count": 27
+  }
+}

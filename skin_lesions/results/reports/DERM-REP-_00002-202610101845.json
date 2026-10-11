@@ -1,0 +1,42 @@
+{
+  "patient_id": "PAT_DERM_00002",
+  "lesion_id": "HAM_L_MEL_00001",
+  "examination_date": "2026-10-10 18:45:06",
+  "clinical_center": "Charite_SkinCancerCenter_Berlin",
+  "dermatoscope_hardware": "DermLite_DL4_Polarized_10x",
+  "age": 60,
+  "sex": "female",
+  "localization": "back",
+  "fitzpatrick_phototype": "Type_IV",
+  "primary_diagnosis": "MEL",
+  "primary_confidence": 1.0,
+  "differential_diagnosis": [
+    {
+      "class_name": "MEL",
+      "probability": 1.0
+    },
+    {
+      "class_name": "DF",
+      "probability": 0.0
+    },
+    {
+      "class_name": "VASC",
+      "probability": 0.0
+    }
+  ],
+  "is_malignancy_suspected": true,
+  "urgency_tier": "Urgent",
+  "asymmetry_score": 1,
+  "border_score": 0,
+  "color_score": 3,
+  "colors_detected": [
+    "black",
+    "white",
+    "slate_blue_gray"
+  ],
+  "diameter_mm": 8.63,
+  "total_dermoscopy_score": 5.3,
+  "tds_risk_tier": "Suspicious / Borderline",
+  "clinical_action_plan": "URGENT EXCISIONAL BIOPSY MANDATED: Perform complete full-thickness surgical excision with a narrow 2-5 mm safety margin. Avoid partial shave or punch biopsy to ensure accurate Breslow thickness measurement and staging. Fast-track histopathological evaluation.",
+  "report_id": "DERM-REP-_00002-202610101845"
+}

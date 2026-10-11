@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "skin-lesion-federated-wandb-suite"
+version = "1.0.0"
+description = "Federated Learning (FedML/FedProx) and Weights & Biases Clinical Dermatology Suite for HAM10000/ISIC Skin Lesions Classification"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Federated Clinical Dermatology AI Consortium" }
+]
+keywords = [
+    "skin-lesions",
+    "dermoscopy",
+    "ham10000",
+    "isic",
+    "federated-learning",
+    "fedml",
+    "fedprox",
+    "fedavg",
+    "weights-and-biases",
+    "wandb",
+    "toml",
+    "configparser"
+]
+dependencies = [
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+    "wandb>=0.15.0",
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "scikit-learn>=1.2.0",
+    "pandas>=2.0.0",
+    "Pillow>=9.5.0",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+    "tqdm>=4.65.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "ruff>=0.0.280",
+    "pytest>=7.0.0"
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]
+
+[tool.black]
+line-length = 120
+target-version = ["py310"]
