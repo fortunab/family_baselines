@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Federated Learning Medical Classification Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo">FL</div>
+                <h2>MedFL Platform</h2>
+            </div>
+            <nav class="nav-menu">
+                <a href="#overview" class="nav-item active"><span class="icon">📊</span> Overview</a>
+                <a href="#table1" class="nav-item"><span class="icon">📋</span> Table 1: SubstraFL</a>
+                <a href="#fig3" class="nav-item"><span class="icon">📈</span> Fig 3: Colorectal</a>
+                <a href="#fig4" class="nav-item"><span class="icon">📊</span> Fig 4: Flower Platform</a>
+                <a href="#fig5" class="nav-item"><span class="icon">📉</span> Fig 5: MetisFL Cervical</a>
+                <a href="#models" class="nav-item"><span class="icon">🧬</span> Model Architectures</a>
+            </nav>
+            <div class="paper-badge">
+                <div class="badge-title">Paper Reference</div>
+                <div class="badge-desc">Babuc & Fortiş (2024)<br>West University of Timişoara</div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-header">
+                <div>
+                    <h1>Federated Learning Platforms for Privacy-Preserving Histopathological Image Classification</h1>
+                    <p class="subtitle">Multi-platform experimental suite benchmarking ResNet-50, AlexNet, ZFNet, Bionnica, and BFNet across SubstraFL, Fed-BioMed, MetisFL, Flower, and Classical environments.</p>
+                </div>
+                <div class="header-status">
+                    <span class="status-dot online"></span> All Experiments Ready
+                </div>
+            </header>
+
+            <!-- Metrics Summary Cards -->
+            <section id="overview" class="metrics-grid">
+                <div class="metric-card gold">
+                    <div class="metric-title">Top Cervical Model (BFNet)</div>
+                    <div class="metric-value">91.2%</div>
+                    <div class="metric-sub">SubstraFL Hosted (AUC: 0.92)</div>
+                </div>
+                <div class="metric-card cyan">
+                    <div class="metric-title">Top Colorectal Model (Bionnica)</div>
+                    <div class="metric-value">93.7%</div>
+                    <div class="metric-sub">SubstraFL On-Premises</div>
+                </div>
+                <div class="metric-card purple">
+                    <div class="metric-title">Flower Accuracy (Bionnica)</div>
+                    <div class="metric-value">92.0%</div>
+                    <div class="metric-sub">Hosted Colorectal Setup</div>
+                </div>
+                <div class="metric-card emerald">
+                    <div class="metric-title">MetisFL On-Prem (BFNet)</div>
+                    <div class="metric-value">92.0%</div>
+                    <div class="metric-sub">Cervical Cells Classification</div>
+                </div>
+            </section>
+
+            <!-- Table 1 Section -->
+            <section id="table1" class="card-section">
+                <div class="card-header">
+                    <h2>Table 1: Performance of all models (SubstraFL, hosted services, cervical cells)</h2>
+                    <span class="badge">Paper Benchmark</span>
+                </div>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Model</th>
+                                <th>Accuracy (%)</th>
+                                <th>Sensitivity (%)</th>
+                                <th>Specificity (%)</th>
+                                <th>ROC-AUC score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="tag">ResNet-50</span></td>
+                                <td>87.1</td>
+                                <td>85.6</td>
+                                <td>86.3</td>
+                                <td>0.88</td>
+                            </tr>
+                            <tr>
+                                <td><span class="tag">AlexNet</span></td>
+                                <td>84.3</td>
+                                <td>82.0</td>
+                                <td>83.2</td>
+                                <td>0.85</td>
+                            </tr>
+                            <tr>
+                                <td><span class="tag">ZFNet</span></td>
+                                <td>83.4</td>
+                                <td>81.5</td>
+                                <td>82.7</td>
+                                <td>0.84</td>
+                            </tr>
+                            <tr class="highlight-row">
+                                <td><span class="tag custom">Bionnica (Custom)</span></td>
+                                <td><strong>90.5</strong></td>
+                                <td><strong>89.3</strong></td>
+                                <td><strong>89.8</strong></td>
+                                <td><strong>0.91</strong></td>
+                            </tr>
+                            <tr class="highlight-row top-performer">
+                                <td><span class="tag custom">BFNet (Custom)</span></td>
+                                <td><strong>91.2</strong></td>
+                                <td><strong>89.7</strong></td>
+                                <td><strong>88.4</strong></td>
+                                <td><strong>0.92</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Charts Section: Fig 3 & Fig 5 -->
+            <div class="charts-row">
+                <section id="fig3" class="card-section chart-card">
+                    <div class="card-header">
+                        <h2>Fig 3: Colorectal Polyps Accuracy (SubstraFL, Fed-BioMed, Classical)</h2>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="fig3Chart"></canvas>
+                    </div>
+                </section>
+
+                <section id="fig5" class="card-section chart-card">
+                    <div class="card-header">
+                        <h2>Fig 5: Cervical Cells Accuracy (MetisFL vs Classical)</h2>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="fig5Chart"></canvas>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Fig 4 Section -->
+            <section id="fig4" class="card-section">
+                <div class="card-header">
+                    <h2>Fig 4: Colorectal Polyps Classification for Hosted Services on Flower Platform</h2>
+                </div>
+                <div class="chart-container">
+                    <canvas id="fig4Chart"></canvas>
+                </div>
+            </section>
+
+            <!-- Model Specifications -->
+            <section id="models" class="card-section">
+                <div class="card-header">
+                    <h2>Deep Learning Model Architectures Overview</h2>
+                </div>
+                <div class="models-grid">
+                    <div class="model-box">
+                        <h3>ResNet-50 Baseline</h3>
+                        <p>50-layer residual deep convolutional network with identity skip connections, adapted for histopathological input representations.</p>
+                    </div>
+                    <div class="model-box">
+                        <h3>AlexNet Baseline</h3>
+                        <p>Deep 8-layer benchmark CNN with 11x11 conv filters and max pooling, serving as standard baseline.</p>
+                    </div>
+                    <div class="model-box">
+                        <h3>ZFNet Baseline</h3>
+                        <p>Zeiler & Fergus architecture featuring 7x7 conv1 filters with stride 2 for fine-grained cell structure feature visualization.</p>
+                    </div>
+                    <div class="model-box custom-box">
+                        <h3>Bionnica (Custom)</h3>
+                        <p>Custom deep architecture tailored for colorectal polyp morphology feature extraction with rule-based premalignancy evaluation layers.</p>
+                    </div>
+                    <div class="model-box custom-box">
+                        <h3>BFNet (Custom)</h3>
+                        <p>Custom deep architecture optimized for cervical cell pap smear cytology feature extraction and nuclear-cytoplasmic ratio rule layers.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
