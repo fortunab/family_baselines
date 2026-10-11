@@ -1,0 +1,44 @@
+# SOTA Experiment 1: ResNet-50 for Alzheimer MRI CAM Suite
+dataset:
+  name: "Alzheimer_s_Dataset"
+  data_dir: "data/alzheimer_mri"
+  image_size: 224
+  batch_size: 16
+  valid_pct: 0.20
+  seed: 42
+  classes:
+    - "NonDemented"
+    - "VeryMildDemented"
+    - "MildDemented"
+    - "ModerateDemented"
+
+model:
+  arch: "resnet50"
+  pretrained: true
+  drop_rate: 0.25
+  device: "cpu"
+
+training:
+  epochs: 3
+  learning_rate: 0.0008
+  weight_decay: 0.01
+  save_model: true
+  model_save_path: "results/models/alzheimer_sota_resnet50.pth"
+
+cam:
+  target_layer: null
+  methods:
+    - "gradcam"
+    - "gradcam_plus_plus"
+    - "scorecam"
+  scorecam_max_channels: 32
+  scorecam_batch_size: 16
+  colormap: "jet"
+  alpha: 0.45
+  bg_threshold: 0.05
+
+output:
+  results_dir: "results"
+  heatmaps_dir: "results/heatmaps/resnet50"
+  metrics_dir: "results/metrics/resnet50"
+  export_visualizations: true

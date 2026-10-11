@@ -1,0 +1,44 @@
+# Configuration for Alzheimer MRI fastai CAM Explainability Suite
+dataset:
+  name: "Alzheimer_s_Dataset"
+  data_dir: "data/alzheimer_mri"
+  image_size: 224
+  batch_size: 16
+  valid_pct: 0.20
+  seed: 42
+  classes:
+    - "NonDemented"
+    - "VeryMildDemented"
+    - "MildDemented"
+    - "ModerateDemented"
+
+model:
+  arch: "resnet18"
+  pretrained: true
+  drop_rate: 0.2
+  device: "cpu"  # auto-detected to cuda if available
+
+training:
+  epochs: 3
+  learning_rate: 0.001
+  weight_decay: 0.01
+  save_model: true
+  model_save_path: "results/models/alzheimer_fastai_model.pth"
+
+cam:
+  target_layer: null  # Auto-detected if null
+  methods:
+    - "gradcam"
+    - "gradcam_plus_plus"
+    - "scorecam"
+  scorecam_max_channels: 32
+  scorecam_batch_size: 16
+  colormap: "jet"
+  alpha: 0.45
+  bg_threshold: 0.05
+
+output:
+  results_dir: "results"
+  heatmaps_dir: "results/heatmaps"
+  metrics_dir: "results/metrics"
+  export_visualizations: true

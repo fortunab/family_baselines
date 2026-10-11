@@ -1,0 +1,44 @@
+# High-Capacity ResNet-34 configuration for Alzheimer MRI Explainability
+dataset:
+  name: "Alzheimer_s_Dataset"
+  data_dir: "data/alzheimer_mri"
+  image_size: 224
+  batch_size: 16
+  valid_pct: 0.20
+  seed: 42
+  classes:
+    - "NonDemented"
+    - "VeryMildDemented"
+    - "MildDemented"
+    - "ModerateDemented"
+
+model:
+  arch: "resnet34"
+  pretrained: true
+  drop_rate: 0.3
+  device: "cpu"
+
+training:
+  epochs: 5
+  learning_rate: 0.0008
+  weight_decay: 0.01
+  save_model: true
+  model_save_path: "results/models/alzheimer_resnet34.pth"
+
+cam:
+  target_layer: null
+  methods:
+    - "gradcam"
+    - "gradcam_plus_plus"
+    - "scorecam"
+  scorecam_max_channels: 48
+  scorecam_batch_size: 16
+  colormap: "turbo"
+  alpha: 0.50
+  bg_threshold: 0.05
+
+output:
+  results_dir: "results"
+  heatmaps_dir: "results/heatmaps"
+  metrics_dir: "results/metrics"
+  export_visualizations: true

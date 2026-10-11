@@ -1,0 +1,310 @@
+{
+  "dataset": "Alzheimer_s_Dataset",
+  "architecture": "resnet18",
+  "classes": [
+    "NonDemented",
+    "VeryMildDemented",
+    "MildDemented",
+    "ModerateDemented"
+  ],
+  "step_1_classification_metrics": {
+    "step_name": "classification_evaluation",
+    "accuracy": 0.3714,
+    "balanced_accuracy": 0.483,
+    "precision_macro": 0.6694,
+    "precision_weighted": 0.7886,
+    "recall_macro_sensitivity": 0.483,
+    "recall_weighted": 0.3714,
+    "specificity_macro": 0.8244,
+    "f1_macro": 0.3886,
+    "f1_weighted": 0.4258,
+    "cohen_kappa": 0.2532,
+    "mcc": 0.3541,
+    "roc_auc_macro": 0.8565,
+    "log_loss": 1.9777,
+    "confusion_matrix": [
+      [
+        5,
+        15,
+        0,
+        0
+      ],
+      [
+        0,
+        6,
+        0,
+        0
+      ],
+      [
+        0,
+        10,
+        11,
+        1
+      ],
+      [
+        1,
+        16,
+        1,
+        4
+      ]
+    ],
+    "per_class_metrics": {
+      "NonDemented": {
+        "precision": 0.8333333333333334,
+        "recall_sensitivity": 0.25,
+        "f1_score": 0.38461538461538464,
+        "support": 20
+      },
+      "VeryMildDemented": {
+        "precision": 0.1276595744680851,
+        "recall_sensitivity": 1.0,
+        "f1_score": 0.22641509433962265,
+        "support": 6
+      },
+      "MildDemented": {
+        "precision": 0.9166666666666666,
+        "recall_sensitivity": 0.5,
+        "f1_score": 0.6470588235294118,
+        "support": 22
+      },
+      "ModerateDemented": {
+        "precision": 0.8,
+        "recall_sensitivity": 0.18181818181818182,
+        "f1_score": 0.2962962962962963,
+        "support": 22
+      }
+    }
+  },
+  "step_2_cam_explainability_metrics": {
+    "mean_across_classes": {
+      "gradcam": {
+        "energy_localization_ratio": 0.6825,
+        "average_drop_pct": 14.795,
+        "ablation_drop_pct": 49.3425,
+        "shannon_entropy": 13.2903
+      },
+      "gradcam_plus_plus": {
+        "energy_localization_ratio": 0.7559,
+        "average_drop_pct": 47.37,
+        "ablation_drop_pct": 61.785,
+        "shannon_entropy": 15.3371
+      },
+      "scorecam": {
+        "energy_localization_ratio": 0.7706,
+        "average_drop_pct": 49.8,
+        "ablation_drop_pct": 60.3475,
+        "shannon_entropy": 15.2991
+      }
+    },
+    "per_class_breakdown": {
+      "NonDemented": {
+        "step_name": "cam_explainability_evaluation",
+        "methods": {
+          "gradcam": {
+            "original_prob": 0.0107,
+            "masked_prob": 0.0231,
+            "ablated_prob": 0.0001,
+            "average_drop_pct": 0.0,
+            "ablation_drop_pct": 99.32,
+            "increase_in_conf": 1.0,
+            "energy_localization_ratio": 0.5059,
+            "shannon_entropy": 14.691,
+            "sparsity": 0.5344
+          },
+          "gradcam_plus_plus": {
+            "original_prob": 0.0107,
+            "masked_prob": 0.0001,
+            "ablated_prob": 0.0016,
+            "average_drop_pct": 99.31,
+            "ablation_drop_pct": 85.5,
+            "increase_in_conf": 0.0,
+            "energy_localization_ratio": 0.7537,
+            "shannon_entropy": 15.3467,
+            "sparsity": 0.2397
+          },
+          "scorecam": {
+            "original_prob": 0.0107,
+            "masked_prob": 0.0,
+            "ablated_prob": 0.0003,
+            "average_drop_pct": 99.69,
+            "ablation_drop_pct": 97.08,
+            "increase_in_conf": 0.0,
+            "energy_localization_ratio": 0.7751,
+            "shannon_entropy": 15.31,
+            "sparsity": 0.2966
+          }
+        },
+        "inter_cam_consistency": {
+          "gradcam_vs_gradcam_plus_plus": {
+            "ssim": 0.0623,
+            "pearson_corr": 0.0628
+          },
+          "gradcam_vs_scorecam": {
+            "ssim": 0.0252,
+            "pearson_corr": 0.0208
+          },
+          "gradcam_plus_plus_vs_scorecam": {
+            "ssim": 0.986,
+            "pearson_corr": 0.9911
+          }
+        }
+      },
+      "VeryMildDemented": {
+        "step_name": "cam_explainability_evaluation",
+        "methods": {
+          "gradcam": {
+            "original_prob": 0.029,
+            "masked_prob": 0.1003,
+            "ablated_prob": 0.002,
+            "average_drop_pct": 0.0,
+            "ablation_drop_pct": 93.05,
+            "increase_in_conf": 1.0,
+            "energy_localization_ratio": 0.4397,
+            "shannon_entropy": 13.6575,
+            "sparsity": 0.7915
+          },
+          "gradcam_plus_plus": {
+            "original_prob": 0.029,
+            "masked_prob": 0.0028,
+            "ablated_prob": 0.0021,
+            "average_drop_pct": 90.17,
+            "ablation_drop_pct": 92.68,
+            "increase_in_conf": 0.0,
+            "energy_localization_ratio": 0.7823,
+            "shannon_entropy": 15.2787,
+            "sparsity": 0.3147
+          },
+          "scorecam": {
+            "original_prob": 0.029,
+            "masked_prob": 0.0001,
+            "ablated_prob": 0.0116,
+            "average_drop_pct": 99.51,
+            "ablation_drop_pct": 60.05,
+            "increase_in_conf": 0.0,
+            "energy_localization_ratio": 0.7978,
+            "shannon_entropy": 15.2107,
+            "sparsity": 0.4016
+          }
+        },
+        "inter_cam_consistency": {
+          "gradcam_vs_gradcam_plus_plus": {
+            "ssim": -0.0356,
+            "pearson_corr": -0.067
+          },
+          "gradcam_vs_scorecam": {
+            "ssim": -0.1262,
+            "pearson_corr": -0.2006
+          },
+          "gradcam_plus_plus_vs_scorecam": {
+            "ssim": 0.968,
+            "pearson_corr": 0.9742
+          }
+        }
+      },
+      "MildDemented": {
+        "step_name": "cam_explainability_evaluation",
+        "methods": {
+          "gradcam": {
+            "original_prob": 0.2165,
+            "masked_prob": 0.984,
+            "ablated_prob": 0.9742,
+            "average_drop_pct": 0.0,
+            "ablation_drop_pct": 0.0,
+            "increase_in_conf": 1.0,
+            "energy_localization_ratio": 0.7904,
+            "shannon_entropy": 13.1848,
+            "sparsity": 0.8833
+          },
+          "gradcam_plus_plus": {
+            "original_prob": 0.2165,
+            "masked_prob": 0.9979,
+            "ablated_prob": 0.0672,
+            "average_drop_pct": 0.0,
+            "ablation_drop_pct": 68.96,
+            "increase_in_conf": 1.0,
+            "energy_localization_ratio": 0.7532,
+            "shannon_entropy": 15.3559,
+            "sparsity": 0.1978
+          },
+          "scorecam": {
+            "original_prob": 0.2165,
+            "masked_prob": 0.9964,
+            "ablated_prob": 0.1583,
+            "average_drop_pct": 0.0,
+            "ablation_drop_pct": 26.91,
+            "increase_in_conf": 1.0,
+            "energy_localization_ratio": 0.7563,
+            "shannon_entropy": 15.3351,
+            "sparsity": 0.2232
+          }
+        },
+        "inter_cam_consistency": {
+          "gradcam_vs_gradcam_plus_plus": {
+            "ssim": 0.0792,
+            "pearson_corr": 0.2646
+          },
+          "gradcam_vs_scorecam": {
+            "ssim": 0.0659,
+            "pearson_corr": 0.2146
+          },
+          "gradcam_plus_plus_vs_scorecam": {
+            "ssim": 0.9703,
+            "pearson_corr": 0.9704
+          }
+        }
+      },
+      "ModerateDemented": {
+        "step_name": "cam_explainability_evaluation",
+        "methods": {
+          "gradcam": {
+            "original_prob": 0.0073,
+            "masked_prob": 0.003,
+            "ablated_prob": 0.007,
+            "average_drop_pct": 59.18,
+            "ablation_drop_pct": 5.0,
+            "increase_in_conf": 0.0,
+            "energy_localization_ratio": 0.9942,
+            "shannon_entropy": 11.6279,
+            "sparsity": 0.9601
+          },
+          "gradcam_plus_plus": {
+            "original_prob": 0.0073,
+            "masked_prob": 0.1574,
+            "ablated_prob": 0.0129,
+            "average_drop_pct": 0.0,
+            "ablation_drop_pct": 0.0,
+            "increase_in_conf": 1.0,
+            "energy_localization_ratio": 0.7345,
+            "shannon_entropy": 15.3671,
+            "sparsity": 0.2016
+          },
+          "scorecam": {
+            "original_prob": 0.0073,
+            "masked_prob": 0.0503,
+            "ablated_prob": 0.0031,
+            "average_drop_pct": 0.0,
+            "ablation_drop_pct": 57.35,
+            "increase_in_conf": 1.0,
+            "energy_localization_ratio": 0.7531,
+            "shannon_entropy": 15.3405,
+            "sparsity": 0.2271
+          }
+        },
+        "inter_cam_consistency": {
+          "gradcam_vs_gradcam_plus_plus": {
+            "ssim": 0.0328,
+            "pearson_corr": 0.445
+          },
+          "gradcam_vs_scorecam": {
+            "ssim": 0.0253,
+            "pearson_corr": 0.376
+          },
+          "gradcam_plus_plus_vs_scorecam": {
+            "ssim": 0.9814,
+            "pearson_corr": 0.985
+          }
+        }
+      }
+    }
+  }
+}

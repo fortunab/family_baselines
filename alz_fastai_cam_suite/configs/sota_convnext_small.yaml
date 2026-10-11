@@ -1,0 +1,44 @@
+# SOTA Experiment 4: ConvNeXt-Small for Alzheimer MRI CAM Suite
+dataset:
+  name: "Alzheimer_s_Dataset"
+  data_dir: "data/alzheimer_mri"
+  image_size: 224
+  batch_size: 16
+  valid_pct: 0.20
+  seed: 42
+  classes:
+    - "NonDemented"
+    - "VeryMildDemented"
+    - "MildDemented"
+    - "ModerateDemented"
+
+model:
+  arch: "convnext_small"
+  pretrained: true
+  drop_rate: 0.2
+  device: "cpu"
+
+training:
+  epochs: 3
+  learning_rate: 0.0005
+  weight_decay: 0.05
+  save_model: true
+  model_save_path: "results/models/alzheimer_sota_convnext_small.pth"
+
+cam:
+  target_layer: null
+  methods:
+    - "gradcam"
+    - "gradcam_plus_plus"
+    - "scorecam"
+  scorecam_max_channels: 32
+  scorecam_batch_size: 16
+  colormap: "jet"
+  alpha: 0.45
+  bg_threshold: 0.05
+
+output:
+  results_dir: "results"
+  heatmaps_dir: "results/heatmaps/convnext_small"
+  metrics_dir: "results/metrics/convnext_small"
+  export_visualizations: true
