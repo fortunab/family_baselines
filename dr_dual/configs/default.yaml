@@ -1,0 +1,92 @@
+# Dual-Database Clinical Machine Learning Configuration
+# Diabetic Retinopathy (EyePACS/APTOS + Messidor/IDRiD) & ISIC + HAM10000
+
+system:
+  seed: 42
+  num_workers: 0
+
+databases:
+  diabetic_retinopathy:
+    db1_name: "eyepacs_aptos"
+    db2_name: "messidor_idrid"
+    image_size: 256
+    classes:
+      - "No_DR"
+      - "Mild_NPDR"
+      - "Moderate_NPDR"
+      - "Severe_NPDR"
+      - "Proliferative_DR"
+    referral_threshold_class: 2 # Classes >= 2 are referable DR
+    raw_dir: "data/raw/diabetic_retinopathy"
+    manifest_path: "data/manifests/dr_dual_db_manifest.json"
+    samples_per_db: 250 # 500 samples total (balanced clinical distribution)
+
+  dermatology_isic_ham:
+    db1_name: "isic_archive"
+    db2_name: "ham10000"
+    image_size: 256
+    classes:
+      - "MEL"    # Melanoma
+      - "NV"     # Melanocytic nevus
+      - "BCC"    # Basal cell carcinoma
+      - "AKIEC"  # Actinic keratoses
+      - "BKL"    # Benign keratosis-like
+      - "DF"     # Dermatofibroma
+      - "VASC"   # Vascular lesions
+    raw_dir: "data/raw/dermatology_isic_ham"
+    manifest_path: "data/manifests/isic_ham_manifest.json"
+    samples_per_db: 150 # 300 samples total
+
+features:
+  radiomics:
+    glcm_distances: [1, 2, 4]
+    glcm_angles: [0, 0.785398, 1.570796, 2.356194] # 0, 45, 90, 135 deg
+    color_spaces: ["rgb", "lab", "hsv"]
+    vessel_tophat_kernel_size: 9
+    optic_disc_roi_fraction: 0.25
+    lbp_points: 8
+    lbp_radius: 1.0
+
+experiments:
+  stratified_k_folds: 5
+  test_size: 0.20
+  evaluation_paradigms:
+    - "intra_db1"          # Train on DB1, test on DB1
+    - "intra_db2"          # Train on DB2, test on DB2
+    - "cross_db_transfer"  # Train on DB1, test on DB2 (Domain Shift Test)
+    - "harmonized_pooled"  # Train on DB1 + DB2 joint, test on DB1 + DB2 joint
+
+ml_family:
+  algorithms:
+    - "svm_rbf"
+    - "svm_linear"
+    - "random_forest"
+    - "extra_trees"
+    - "hist_gradient_boosting"
+    - "mlp"
+    - "logistic_regression"
+    - "knn"
+    - "soft_voting_ensemble"
+  feature_scaling: "robust" # "standard", "robust", "minmax"
+  pca_components: null      # null to keep full feature set
+
+output:
+  results_dir: "results"
+  metrics_dir: "results/metrics"
+  figures_dir: "results/figures"
+  checkpoints_dir: "results/checkpoints"
+
+foundation_models:
+  backbones:
+    - "densenet121"
+    - "resnet50"
+    - "convnext_small"
+    - "efficientnet_b0"
+  image_size: 224
+  batch_size: 16
+  epochs: 3
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  dropout: 0.3
+  pretrained: false
+

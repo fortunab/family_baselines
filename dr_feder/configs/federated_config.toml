@@ -1,0 +1,62 @@
+# Federated Learning Diabetic Retinopathy Configuration (TOML Format)
+# Multi-Center Fundus Cohort: EyePACS, Messidor-2, IDRiD, APTOS
+
+[experiment]
+name = "diabetic_retinopathy_federated_benchmark"
+algorithm = "fedprox"          # Options: "fedprox", "fedavg", "centralized", "local_isolated"
+seed = 42
+device = "cpu"                  # "cpu" or "cuda"
+output_dir = "results"
+log_level = "INFO"
+
+[dataset]
+name = "dr_dual_db_eyepacs_messidor"
+num_classes = 5
+total_samples = 400
+image_size = 64
+test_split_ratio = 0.20
+classes = ["No_DR", "Mild_NPDR", "Moderate_NPDR", "Severe_NPDR", "Proliferative_DR"]
+referral_threshold_grade = 2    # Grade >= 2 (Moderate, Severe, PDR) requires vitreoretinal specialist referral
+
+[federated]
+num_clients = 4
+client_names = [
+    "TeleScreening_EyePACS_California",
+    "Hospital_Topcon_Paris_Messidor",
+    "RetinaInstitute_IDRiD_India",
+    "PrimaryCare_APTOS_Asia"
+]
+rounds = 15
+local_epochs = 2
+batch_size = 16
+dirichlet_alpha = 0.5          # Concentration parameter for Non-IID demographic / institutional camera skew
+client_fraction = 1.0          # Fraction of hospitals participating per global round
+fedprox_mu = 0.01              # Proximal regularization weight against Non-IID client drift
+
+[model]
+architecture = "resnet_retina"  # Options: "resnet_retina", "convnet_compact"
+in_channels = 3
+hidden_dim = 64
+dropout = 0.25
+num_classes = 5
+
+[optimizer]
+type = "adamw"                 # "adamw" or "sgd"
+lr = 0.002
+weight_decay = 0.0001
+momentum = 0.9
+lr_decay = 0.96
+
+[wandb]
+enabled = true
+project = "dr-fedml-ophthalmology"
+entity = ""
+mode = "offline"               # "offline" for self-contained execution, "online" with W&B API key
+tags = ["federated-learning", "diabetic-retinopathy", "eyepacs", "messidor", "fedprox", "ophthalmology"]
+notes = "Federated Multi-Hospital Non-IID Fundus Benchmark on 5-Class Diabetic Retinopathy"
+
+[clinical]
+referral_threshold_grade = 2
+min_target_qwk = 0.80          # Quadratic Weighted Kappa target for clinical deployment
+min_referral_sens = 0.95       # Minimum safety sensitivity on vision-threatening DR
+save_checkpoints = true
